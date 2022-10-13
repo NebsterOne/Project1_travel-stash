@@ -18,10 +18,10 @@ function notQAuth(event) {
         window.location.href = "./dashboard.html"
     } else {
         var returnEl = document.createElement('p');
-        returnEl.innerHTML = "Incorect username or password"
+        returnEl.innerHTML = "Incorrect username or password"
         userReturn.appendChild(returnEl);
-    }
-
+ 
+    } 
 
     console.log('working onclick');
     console.log(userNameVal);
