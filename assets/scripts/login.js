@@ -14,15 +14,15 @@ function notQAuth(event) {
 
 
 
-    if (userNameVal === uName  && userPassVal === uPass) {
+    if (userNameVal === uName && userPassVal === uPass) {
         window.location.href = "./dashboard.html"
     } else {
         var returnEl = document.createElement('p');
-            returnEl.innerHTML = "Incorect username or password"
-            userReturn.appendChild(returnEl);
+        returnEl.innerHTML = "Incorect username or password"
+        userReturn.appendChild(returnEl);
     }
-        
-    
+
+
     console.log('working onclick');
     console.log(userNameVal);
     console.log(userPassVal);
