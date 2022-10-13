@@ -13,19 +13,20 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">User Name</label>
+          <textarea id="u-login" class="materialize-textarea" placeholder="Username"></textarea>
+          <!-- <label for="u-login">User Name</label> -->
         </div>
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Password</label>
+          <input id="u-pass" class="materialize-textarea" type="password" placeholder="password"></textarea>
+          <!-- <label for="u-pass">Password</label> -->
         </div>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <button class="btn waves-effect waves-light" type="submit" name="action" id="user-sub">Submit
       
       </button>
     </form>
   </div>
+  <div id="pass-return"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/scripts/login.js"></script>
