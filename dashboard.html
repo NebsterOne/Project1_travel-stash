@@ -20,20 +20,19 @@
 <body>
   <!-- This is the container  -->
 
-  <div id="container" class='row card-panel'>
+  <div id="container" class='row card-panel center-align'>
     <!-- Navbar goes here -->
     <nav class="nav-extended card-panel cyan darken-2 row">
-      <!-- Page Layout here -->
       <div class="nav-wrapper">
-
-        <a href="#!" class="brand-logo">Travel Stash</a>
-
-
+        <!-- BRAND  -->
+        <a href="#!" class="brand-logo flow-text">Travel Stash</a>
+        <!-- This is where we can put a slogan/paragraph of 'how to use' etc..... -->
         <div class="nav-content">
-          <h4 class="nav-title cyan-text text-lighten-5">Plan Your Trip</h4>
-
-          <a class="btn-floating btn-large right waves-effect waves-light blue"><i class="material-icons tooltipped"
-              data-position="top" data-tooltip="Add Trip">add</i></a>
+          <p class="nav-title cyan-text text-lighten-5 flow-text">Plan Your Trip</p>
+          <!-- <p> Blaaaahh blahh blah Get your local weather updates to your desired travel location and organise yourself by making a custom to-do/packing list blahh blahh </p> -->
+          <!-- this is the plus button this will need to be linked to the dynamically created location cards to add a new one -->
+          <a class="btn-floating btn-large right waves-effect waves-light blue hoverable"><i
+              class="material-icons tooltipped" data-position="top" data-tooltip="Add Trip">add</i></a>
         </div>
       </div>
     </nav>
@@ -42,12 +41,36 @@
     <!-- this is a card section for dynamic use i have the static cards there for viewing purposes
     you can see how they will wrap and show on the page. I have left a section for a background image-->
     <div id="wrapper" class='card-panel cyan lighten-5'>
-
-
-
+      <!-- This is the'first card -->
       <div class="row ">
         <div class="col s12 m6 l2 ">
-          <div class="card cyan darken-2 z-depth-5">
+          <div class="card cyan darken-2 hoverable z-depth-5">
+            <div class="card-content white-text">
+              <!--below you can add to the div above if you want to test out what a background image will look like-->
+              <!--style="background-image: url('https://cms.finnair.com/resource/blob/673242/3523a759b61b788b834fe56aa57fa255/sydney-main-data.jpg');background-size:cover;"> -->
+              <!-- Custom photo dynamic background image can go here  and also link ready when clicked - example goes to google-->
+              <span class="card-title "><a href="http://www.google.com" class=" white-text scale-transition">Location</a></span>
+              <p>Dates will go in here </p>
+            </div>
+          </div>
+        </div>
+
+<!-- TO BE DELETED EVENTUALLY ------------------------------------------------>
+
+        <div class="col s12 m6 l2 ">
+          <div class="card cyan darken-2 hoverable z-depth-5">
+            <div class="card-content white-text">
+              <!-- Custom photo dynamic background image can go here  -->
+              <span class="card-title "><a href="http://www.google.com" class=" white-text scale-transition">Location</a></span>
+              <p>Dates will go in here </p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col s12 m6 l2 ">
+          <div class="card cyan darken-2 hoverable z-depth-5">
             <div class="card-content white-text">
               <!-- Custom photo dynamic background image can go here  -->
               <span class="card-title">Location</span>
@@ -57,45 +80,20 @@
         </div>
 
 
-  
-          <div class="col s12 m6 l2 ">
-            <div class="card cyan darken-2 z-depth-5">
-              <div class="card-content white-text">
-                <!-- Custom photo dynamic background image can go here  -->
-                <span class="card-title">Location</span>
-                <p>Dates will go in here </p>
-              </div>
+        <div class="col s12 m6 l2 ">
+          <div class="card cyan darken-2 hoverable z-depth-5">
+            <div class="card-content white-text">
+              <!-- Custom photo dynamic background image can go here  -->
+              <span class="card-title">Location</span>
+              <p>Dates will go in here </p>
             </div>
           </div>
-
-
-
-            <div class="col s12 m6 l2 ">
-              <div class="card cyan darken-2 z-depth-5">
-                <div class="card-content white-text">
-                  <!-- Custom photo dynamic background image can go here  -->
-                  <span class="card-title">Location</span>
-                  <p>Dates will go in here </p>
-                </div>
-              </div>
-            </div>
-
-            
-            <div class="col s12 m6 l2 ">
-              <div class="card cyan darken-2 z-depth-5">
-                <div class="card-content white-text">
-                  <!-- Custom photo dynamic background image can go here  -->
-                  <span class="card-title">Location</span>
-                  <p>Dates will go in here </p>
-                </div>
-              </div>
-            </div>
-
-
-  </div>
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="/assets/scripts/dashboard.js"></script>
+        </div>
+<!---------------------------------------------------------------------------------------------  -->
+      </div>
+      <!--JavaScript at end of body for optimized loading-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="/assets/scripts/dashboard.js"></script>
 </body>
 
 </html>
