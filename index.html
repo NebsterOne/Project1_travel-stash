@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pack Stash</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-<body>
-  
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="u-login" class="materialize-textarea" placeholder="Username"></textarea>
-          <!-- <label for="u-login">User Name</label> -->
-        </div>
-        <div class="input-field col s12">
-          <input id="u-pass" class="materialize-textarea" type="password" placeholder="password"></textarea>
-          <!-- <label for="u-pass">Password</label> -->
-        </div>
-      </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="user-sub">Submit
-      
-      </button>
-    </form>
-  </div>
-  <div id="pass-return"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./assets/scripts/login.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Stash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body>
+    <br>
+    <div  class=" center-align  ">
+        <div id="testing" class="row  center-align cyan lighten-5">
+            <form class="col s12 m12 l12 z-depth-5 " >
+                <div class="row">
+                    <div class="input-field">
+                        <textarea id="u-login" class="materialize-textarea center-align" placeholder="Username"></textarea>
+                        <!-- <label for="u-login">User Name</label> -->
+                    </div>
+                    <div class="input-field">
+                        <input id="u-pass" class="materialize-textarea center-align" type="password"
+                            placeholder="password"></textarea>
+                        <!-- <label for="u-pass">Password</label> -->
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light hoverable cyan darken-2" type="submit" name="action"
+                    id="user-sub">Submit
+
+                </button>
+            </form>
+        </div>
+        <div id="pass-return"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/scripts/login.js"></script>
 </body>
+
 </html>
