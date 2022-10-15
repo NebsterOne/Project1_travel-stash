@@ -1,10 +1,17 @@
 //query selectors
 var prePopEl = document.querySelector('#pre-pop');
 var customListEl = document.querySelector('#custom-list');
+var customIdEl = document.querySelector('#custom-id');
 
 // consts and hoisted vars
 var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
+
 var customItems = [];
+var customStatus = [];
+var userTrip = {
+    items: customItems,
+    itemsChecked: customStatus
+};
 
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
@@ -18,20 +25,30 @@ function populteBasic() {
             var buttRemove = document.getElementById(i);
             buttRemove.parentNode.removeChild(buttRemove); //removes button after clicking
 
-            var listCustom = document.createElement('input');
-            listCustom.type = 'checkbox';
-            listCustom.name = 'name';
-            listCustom.value = 'value';
-            listCustom.id = i;
-
-            var label = document.createElement('label');
-            label,htmlFor = i;
-            label.appendChild(document.createTextNode(i))
-
+            var listCustom = document.createElement('p');
+            listCustom.innerHTML = i;
+            customItems.push(i);
             customListEl.appendChild(listCustom);
-            customListEl.appendChild(label);
-            customItems.push(i); //adds clicked item to custom items array
-            console.log(customItems);
+
+
+
+            // //FOR CHECKBOX'S
+            // var listCustom = document.createElement('input');
+            // listCustom.type = 'checkbox';
+            // listCustom.name = 'name';
+            // listCustom.value = 'value';
+            // listCustom.className = 'customBox'
+            // listCustom.id = i;
+
+            // var label = document.createElement('label');
+            // label.htmlFor = i;
+            // label.appendChild(document.createTextNode(i))
+
+            // customIdEl.appendChild(listCustom);
+            // customListEl.appendChild(label);
+            // customItems.push(i); //adds clicked item to custom items array
+            // console.log(userTrip);
+            
 
         });
 
@@ -48,32 +65,21 @@ function populteCustom() {
 populteBasic();
 
 
-function geek() {
-    var myDiv = document.getElementById("myDiv");
-     
-    // creating checkbox element
-    var checkbox = document.createElement('input');
-     
-    // Assigning the attributes
-    // to created checkbox
-    checkbox.type = "checkbox";
-    checkbox.name = "name";
-    checkbox.value = "value";
-    checkbox.id = "id";
-     
-    // creating label for checkbox
-    var label = document.createElement('label');
-     
-    // assigning attributes for
-    // the created label tag
-    label.htmlFor = "id";
-     
-    // appending the created text to
-    // the created label tag
-    label.appendChild(document.createTextNode('This is the label for checkbox.'));
-     
-    // appending the checkbox
-    // and label to div
-    myDiv.appendChild(checkbox);
-    myDiv.appendChild(label);
-}
+
+// let boxes = document.getElementsByClassName('box').length;
+
+// function save() {	
+//   for(let i = 1; i <= boxes; i++){
+// 	  var checkbox = document.getElementById(String(i));
+//     localStorage.setItem("checkbox" + String(i), checkbox.checked);	
+//   }
+// }
+
+// //for loading
+// for(let i = 1; i <= boxes; i++){
+//   if(localStorage.length > 0){
+//     var checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
+//     document.getElementById(String(i)).checked = checked;
+//   }
+// }
+// window.addEventListener('change', save);
