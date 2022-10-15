@@ -1,0 +1,49 @@
+.input {
+  box-sizing: content-box;
+  padding: 30px;
+  border-radius: 10px;
+
+}
+
+.weather {
+  margin: 100px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.weather {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.input {
+  text-align: left;
+  margin: 40px;
+}
+
+input[type="text"] {
+  height: 40px;
+  width: 300px;
+  background-color: rgb(242, 242, 245);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 2px;
+}
+
+.inputValue {
+  color: rgb(3, 52, 82);
+}
+
+.button {
+  height: 40px;
+  background-color: rgb(251, 164, 3);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: rgb(149, 243, 243);
+  color: rgb(8, 11, 13);
+}
