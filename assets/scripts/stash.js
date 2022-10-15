@@ -16,11 +16,23 @@ function populteBasic() {
 
         buttonBasic.addEventListener('click', function() { //event listener for each created button
             var buttRemove = document.getElementById(i);
-            buttRemove.parentNode.removeChild(buttRemove);
-            var listCustom = document.createElement('p');
-            listCustom.innerHTML = i; //content for appened from forEach
-            customItems.push(i); //adds clicked item to custom items array
+            buttRemove.parentNode.removeChild(buttRemove); //removes button after clicking
+
+            var listCustom = document.createElement('input');
+            listCustom.type = 'checkbox';
+            listCustom.name = 'name';
+            listCustom.value = 'value';
+            listCustom.id = i;
+
+            var label = document.createElement('label');
+            label,htmlFor = i;
+            label.appendChild(document.createTextNode(i))
+
             customListEl.appendChild(listCustom);
+            customListEl.appendChild(label);
+            customItems.push(i); //adds clicked item to custom items array
+            console.log(customItems);
+
         });
 
         prePopEl.appendChild(buttonBasic);
@@ -34,3 +46,34 @@ function populteCustom() {
 
 
 populteBasic();
+
+
+function geek() {
+    var myDiv = document.getElementById("myDiv");
+     
+    // creating checkbox element
+    var checkbox = document.createElement('input');
+     
+    // Assigning the attributes
+    // to created checkbox
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    checkbox.id = "id";
+     
+    // creating label for checkbox
+    var label = document.createElement('label');
+     
+    // assigning attributes for
+    // the created label tag
+    label.htmlFor = "id";
+     
+    // appending the created text to
+    // the created label tag
+    label.appendChild(document.createTextNode('This is the label for checkbox.'));
+     
+    // appending the checkbox
+    // and label to div
+    myDiv.appendChild(checkbox);
+    myDiv.appendChild(label);
+}
