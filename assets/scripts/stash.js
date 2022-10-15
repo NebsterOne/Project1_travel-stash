@@ -2,12 +2,14 @@
 var prePopEl = document.querySelector('#pre-pop');
 var customListEl = document.querySelector('#custom-list');
 var customIdEl = document.querySelector('#custom-id');
+var addMoreBtn = document.querySelector('#add-more');
 
 // consts and hoisted vars
 var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
 
 var customItems = [];
 var customStatus = [];
+var newItemArr = []
 var userTrip = {
     items: customItems,
     itemsChecked: customStatus
@@ -15,7 +17,7 @@ var userTrip = {
 
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
-    if (customItems = null) {
+
         basicItems.forEach(i => { // creates buttons from basic items array
             var buttonBasic = document.createElement('button');
             buttonBasic.setAttribute('id', i); //set ID for for each created button to value of button
@@ -51,9 +53,7 @@ function populteBasic() {
 
             prePopEl.appendChild(buttonBasic);
         });
-    } else {
-        populteCustom();
-    }
+
 };
 
 //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
@@ -70,9 +70,22 @@ function populteCustom() {
     }
 };
 
+function addMore() {
+    var customItems = JSON.parse(localStorage.getItem('customItems'));
+    var newItem = document.querySelector('#add-more-cont').value;
+    newItemArr = newItem;
+    customItems.push(newItemArr);
+    var listCreate = document.createElement('p');
+        listCreate.innerHTML = newItem;
+        customListEl.appendChild(listCreate);
+        localStorage.setItem('customItems', JSON.stringify(customItems));
+    
+};
 
+addMoreBtn.addEventListener('click', addMore);
 populteBasic();
-//populteCustom();
+populteCustom();
+
 
 
 
