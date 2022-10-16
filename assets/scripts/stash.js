@@ -125,13 +125,13 @@ function packedList(evt) {
 // ----------------------------------------- POPULATE PACKED --------------------------------------------
 function populatePacked() {
     customPacked = JSON.parse(localStorage.getItem('customPacked'));
-    customPackedArr = Object.values(customPacked);
+    //customPackedArr = Object.values(customPacked);
 
     if (customPacked != null) {
         for (var i = 0; i < customPacked.length; i++) {
             var packedCreate = document.createElement('button');
             packedCreate.setAttribute('id', packedCreate[i]);
-            packedCreate.innerHTML = customPackedArr[i];
+            packedCreate.innerHTML = customPacked[i];
             packedCreate.addEventListener('click', unpackList)
             packedListEl.appendChild(packedCreate);
         }
@@ -141,7 +141,9 @@ function populatePacked() {
 };
 // --------------------------------------------------------------------------------------------------------
 //--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
-function unpackList() {
+function unpackList(evt) {
+    packedList = JSON.parse(localStorage.getItem('custompacked'));
+    var clickedPacked = (evt.target.id);
 
 };
 //---------------------------------------------------------------------------------------------------------
