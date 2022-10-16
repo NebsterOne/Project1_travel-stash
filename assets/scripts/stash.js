@@ -11,10 +11,10 @@ var customItems = []; //array of items inside #custom list
 var customPacked = []; //array of items inside #packed list
 var newItemArr = [];
 //object to hold all data, NOT IN USE
-var userTrip = {
-    items: customItems,
-    itemsPacked: customPacked
-};
+// var userTrip = {
+//     items: customItems,
+//     itemsPacked: customPacked
+// };
 
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
@@ -31,6 +31,7 @@ function populteBasic() {
             var listCustom = document.createElement('button');
             listCustom.innerHTML = i;
             listCustom.setAttribute('id', i);
+            listCustom.addEventListener('click', packedList);
             customItems.push(i);
             customListEl.appendChild(listCustom);
 
@@ -73,7 +74,7 @@ function populteCustom() {
 };
 
 function addMore() {
-    var customItems = JSON.parse(localStorage.getItem('customItems'));
+     customItems = JSON.parse(localStorage.getItem('customItems'));
     var newItem = document.querySelector('#add-more-cont').value;
     newItemArr = newItem;
     customItems.push(newItemArr);
@@ -83,26 +84,62 @@ function addMore() {
     listCreate.addEventListener('click', packedList);
     customListEl.appendChild(listCreate);
     localStorage.setItem('customItems', JSON.stringify(customItems));
+    console.log(customItems);
 
 };
 
 function packedList(evt) {
-    var customItems = JSON.parse(localStorage.getItem('customItems'));
+    customItems = JSON.parse(localStorage.getItem('customItems'));
     var clickedItem = (evt.target.id); //gets id of clicked button
 
-    
+    console.log(customItems);
     console.log('clicked item ' + clickedItem);
     console.log('custom item array from local storage ' + customItems);
 
     var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
     clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
+
     var moveToPacked = document.createElement('button');
     moveToPacked.innerHTML  = clickedItem;
+
     console.log(typeof clickedItem);
-    moveToPacked.setAttribute('id', moveToPacked);
+
+    moveToPacked.setAttribute('id', clickedItem);
     moveToPacked.addEventListener('click', unpackList);
     packedListEl.appendChild(moveToPacked);
 
+
+
+    for (var i = 0; i < customItems.length; i++){
+        if (customItems[i] === clickedItem) {
+            customItems.splice(i, 1);
+        }
+    };
+    
+    localStorage.setItem('customItems', JSON.stringify(customItems));
+    console.log('spliced '  + customItems);
+// still a string must be array
+    customPacked.push(clickedItem);
+    console.log('packed ' + customPacked);
+    console.log(typeof customPacked);
+    localStorage.setItem('customPacked', JSON.stringify(customPacked));
+
+};
+
+function populatePacked() {
+    customPacked = JSON.parse(localStorage.getItem('customPacked'));
+console.log('custom packed ' + typeof customPacked);
+    if (customPacked != null) {
+        for (var i = 0; i < customPacked.length; i++) {
+            var packedCreate = document.createElement('button');
+            packedCreate.setAttribute('id', packedCreate[i]);
+            packedCreate.innerHTML = packedCreate[i];
+            packedCreate.addEventListener('click', unpackList)
+            packedListEl.appendChild(packedCreate);
+        }
+    } else {
+        return;
+    }
 };
 
 function unpackList() {
@@ -110,9 +147,13 @@ console.log('unpack');
 };
 
 function init() {
-    var customItems = JSON.parse(localStorage.getItem('customItems'));
+    var  customItems = JSON.parse(localStorage.getItem('customItems'));
+    var customPacked = JSON.parse(localStorage.getItem('customPacked'));
     if (customItems != null) {
         populteCustom();
+        if (customPacked != null) {
+            populatePacked();
+        }
     } else {
         populteBasic();
     };
@@ -120,6 +161,7 @@ function init() {
 
 addMoreBtn.addEventListener('click', addMore);
 init()
+
 
 
 
