@@ -56,11 +56,11 @@ function populteBasic() {
         prePopEl.appendChild(buttonBasic);
     });
 };
-
+//-------------------------POPULATES UNPACKED ITEMS-----------------------------------------------------------
 //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
 function populteCustom() {
     var customItems = JSON.parse(localStorage.getItem('customItems'));
-    if (customItems != null) {
+    //if (customItems != null) {
         for (var i = 0; i < customItems.length; i++) {
             var listCreate = document.createElement('button');
             listCreate.setAttribute('id', customItems[i]);
@@ -68,11 +68,12 @@ function populteCustom() {
             listCreate.addEventListener('click', packedList)
             customListEl.appendChild(listCreate);
         }
-    } else {
-        return;
-    }
+    //} else {
+     //   return;
+    //}
 };
-
+//-----------------------------------------------------------------------------------------------------
+//-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
 function addMore() {
      customItems = JSON.parse(localStorage.getItem('customItems'));
     var newItem = document.querySelector('#add-more-cont').value;
@@ -87,7 +88,8 @@ function addMore() {
     console.log(customItems);
 
 };
-
+//--------------------------------------------------------------------------------------------------------
+//-----------------------MOVE ITEMS FROM UNPACKED TO PACKED-------------------------------------------------
 function packedList(evt) {
     customItems = JSON.parse(localStorage.getItem('customItems'));
     var clickedItem = (evt.target.id); //gets id of clicked button
@@ -118,22 +120,24 @@ function packedList(evt) {
     
     localStorage.setItem('customItems', JSON.stringify(customItems));
     console.log('spliced '  + customItems);
-// still a string must be array
+// ERROR ERROR CREATING OBJECT NOT ARRAY
     customPacked.push(clickedItem);
     console.log('packed ' + customPacked);
     console.log(typeof customPacked);
     localStorage.setItem('customPacked', JSON.stringify(customPacked));
 
 };
-
+//-------------------------------------------------------------------------------------------------------
+// ----------------------------------------- POPULATE PACKED --------------------------------------------
 function populatePacked() {
     customPacked = JSON.parse(localStorage.getItem('customPacked'));
-console.log('custom packed ' + typeof customPacked);
+    customPackedArr = Object.values(customPacked);
+console.log('custom packed ' + typeof customPackedArr);
     if (customPacked != null) {
         for (var i = 0; i < customPacked.length; i++) {
             var packedCreate = document.createElement('button');
             packedCreate.setAttribute('id', packedCreate[i]);
-            packedCreate.innerHTML = packedCreate[i];
+            packedCreate.innerHTML = customPackedArr[i];
             packedCreate.addEventListener('click', unpackList)
             packedListEl.appendChild(packedCreate);
         }
@@ -141,11 +145,12 @@ console.log('custom packed ' + typeof customPacked);
         return;
     }
 };
-
+// --------------------------------------------------------------------------------------------------------
+//--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
 function unpackList() {
 console.log('unpack');
 };
-
+//---------------------------------------------------------------------------------------------------------
 function init() {
     var  customItems = JSON.parse(localStorage.getItem('customItems'));
     var customPacked = JSON.parse(localStorage.getItem('customPacked'));
