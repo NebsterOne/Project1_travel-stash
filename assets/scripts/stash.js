@@ -85,7 +85,7 @@ function addMore() {
     listCreate.addEventListener('click', packedList);
     customListEl.appendChild(listCreate);
     localStorage.setItem('customItems', JSON.stringify(customItems));
-    console.log(customItems);
+
 
 };
 //--------------------------------------------------------------------------------------------------------
@@ -94,17 +94,12 @@ function packedList(evt) {
     customItems = JSON.parse(localStorage.getItem('customItems'));
     var clickedItem = (evt.target.id); //gets id of clicked button
 
-    console.log(customItems);
-    console.log('clicked item ' + clickedItem);
-    console.log('custom item array from local storage ' + customItems);
-
     var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
     clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
 
     var moveToPacked = document.createElement('button');
     moveToPacked.innerHTML  = clickedItem;
 
-    console.log(typeof clickedItem);
 
     moveToPacked.setAttribute('id', clickedItem);
     moveToPacked.addEventListener('click', unpackList);
@@ -119,11 +114,10 @@ function packedList(evt) {
     };
     
     localStorage.setItem('customItems', JSON.stringify(customItems));
-    console.log('spliced '  + customItems);
+
 // ERROR ERROR CREATING OBJECT NOT ARRAY
     customPacked.push(clickedItem);
-    console.log('packed ' + customPacked);
-    console.log(typeof customPacked);
+
     localStorage.setItem('customPacked', JSON.stringify(customPacked));
 
 };
@@ -132,7 +126,7 @@ function packedList(evt) {
 function populatePacked() {
     customPacked = JSON.parse(localStorage.getItem('customPacked'));
     customPackedArr = Object.values(customPacked);
-console.log('custom packed ' + typeof customPackedArr);
+
     if (customPacked != null) {
         for (var i = 0; i < customPacked.length; i++) {
             var packedCreate = document.createElement('button');
@@ -148,7 +142,7 @@ console.log('custom packed ' + typeof customPackedArr);
 // --------------------------------------------------------------------------------------------------------
 //--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
 function unpackList() {
-console.log('unpack');
+
 };
 //---------------------------------------------------------------------------------------------------------
 function init() {
