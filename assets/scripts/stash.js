@@ -109,9 +109,17 @@ function unpackList() {
 console.log('unpack');
 };
 
+function init() {
+    var customItems = JSON.parse(localStorage.getItem('customItems'));
+    if (customItems != null) {
+        populteCustom();
+    } else {
+        populteBasic();
+    };
+}
+
 addMoreBtn.addEventListener('click', addMore);
-populteBasic();
-populteCustom();
+init()
 
 
 
