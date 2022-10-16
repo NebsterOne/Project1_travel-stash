@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character Set - Device Accessibility & Compatibility -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Our custom .css file - It is placed here to override any links above -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <!-- Title Bar  -->
+    <title>Travel Stash</title>
+</head>
+
+
+<body>
+
+    <!-- Navbar goes here -->
+    <nav class="nav-extended card-panel cyan darken-2 row">
+        <div class="nav-wrapper">
+            <!-- BRAND  -->
+            <a href="#!" class="brand-logo align-center">Travel Stash</a>
+        </div>
+
+        <div class="nav-content">
+            <!-- Dynamically generated title of searched city from the users search -->
+
+        </div>
+
+    </nav>
+    <!-- Page Layout here -->
+    <div class="row">
+
+        <div class="col s3 cyan lighten-5">
+            <!-- Grey navigation panel -->
+            <div id="sidebar">
+                <p>This is optional, if we want to put any additional things here as a sidebar</p>
+            </div>
+        </div>
+
+        <div class="col s9">
+            <!-- main page content  ------------------------------------------------------------------------------->
+            <!-- map goes here -->
+            <div class="row teal lighten-4">
+                <div id="map">
+                    <p>This is the map section</p>
+                </div>
+            </div>
+
+            <!-- This will be where the weather forecast will go -------------------------------------------------------------->
+            <div class="row cyan lighten-4">
+                <div id="weather">
+                    <p>This is the weather section</p>
+                </div>
+            </div>
+            <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
+            <div id="pre-pop" class="row  teal lighten-4">
+                <div id="custom">
+                    <form id="custom-new input-field col s6">
+                        <input type="text" id="add-more-cont" placeholder="ADD ITEMS" class="white-text">
+                        <button class="btn waves-effect waves-light hoverable cyan darken-2" type="button"
+                            id="add-more">add item</button>
+                    </form>
+                    <!-- this is where you will see what is and isnt packed/checked off? -->
+                    <!--NIC --  Use checkboxes when looking for yes or no answers. true false? The for attribute is necessary to bind our custom checkbox with the input.
+                 Add the input's id as the value of the for attribute of the label. -->
+                    <div id="custom-list" class="col s6">
+                        <p>not packed</p>
+                    </div>
+                    <div id="packed-list" class="col s6">
+                        <p>packed</p>
+                    </div>
+                    <form action="#">
+                        <p>
+                            <label>
+                                <input class="col s6" type="checkbox" />
+                                <span>not packed</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in" checked="checked" />
+                                <span>packed</span>
+                            </label>
+                        </p>
+                    </form>
+                </div>
+                <!-- -------------------------------------------------------------------------------------------------- -->
+            </div>
+        </div>
+
+    </div>
+
+</body>

@@ -29,3 +29,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+::placeholder {
+  color: white;
+  opacity: 0.5; /* Firefox */
+}
