@@ -53,5 +53,11 @@ footer {
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
-  overflow: auto;"
+  overflow: auto;
 }
+
+  /* Changing display state for new location function */
+
+  #new-trip {
+    display: none;
+  }
