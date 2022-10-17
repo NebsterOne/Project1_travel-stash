@@ -16,6 +16,9 @@ var newItemArr = [];
 //     itemsPacked: customPacked
 // };
 
+
+
+
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
 
