@@ -11,7 +11,7 @@ if (newTripEL.style.display === 'none') {
     newTripEL.style.display = 'none';
 }
 };
-
+// still needs some form validation
 function createNewTrip() {
     var userLocation = document.querySelector('#u-location').value;
     var userDate = document.querySelector('#u-date').value;
@@ -20,8 +20,13 @@ function createNewTrip() {
         localStorage.setItem('userdate', JSON.stringify(userDate));
         console.log(userLocation);
         console.log(userDate);
-        
+        if (userLocation != null && userDate != null) {
+            newTripEL.style.display = 'none';
+            window.location.href = "./stash.html"
 
+        }
+        newTripEL.style.display = 'none';
+        
 };
 
 createNewBtn.addEventListener('click', tripShowHide);
