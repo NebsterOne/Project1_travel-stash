@@ -33,10 +33,17 @@
         <!-- <p> Blaaaahh blahh blah Get your local weather updates to your desired travel location and organise yourself by making a custom to-do/packing list blahh blahh </p> -->
         <!-- this is the plus button this will need to be linked to the dynamically created location cards to add a new one -->
       
-        <a class="btn-floating btn-large right waves-effect waves-light cyan lighten-5 hoverable "><i
+        
+        <a class="btn-floating btn-large right waves-effect waves-light cyan lighten-5 hoverable" id="new-btn"><i
             class=" material-icons tooltipped" data-position="bottom" data-tooltip="Add Trip">add</i></a>
       </div>
- 
+      <!-- new trip here -->
+      <div id="new-trip">
+        <textarea id="u-location" class="materialize-textarea center-align" placeholder="Where are we going?" class="newtrip"></textarea>
+        <textarea id="u-date" class="materialize-textarea center-align" placeholder="When are we going?" class="newtrip"></textarea>
+        <button class="btn waves-effect waves-light hoverable cyan darken-2" type="submit" name="action" id="user-sub">Submit</button>
+      </div>
+  
     </nav>
 
     <!-- ------------------------------------------------------------------------------------- -->
