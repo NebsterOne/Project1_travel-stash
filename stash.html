@@ -33,13 +33,13 @@
 
     </nav>
 
-    
+
     <!-- Page Layout here-------------------------------------------------------------------------- -->
     <div class="row">
 
         <div class="col s3 m3 l3">
             <!-- Grey navigation panel -->
-            <div id="sidebar"  class="cyan lighten-5 " >
+            <div id="sidebar" class="cyan lighten-5 ">
                 <p>This is optional, if we want to put any additional things here as a sidebar</p>
             </div>
         </div>
@@ -60,9 +60,12 @@
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
-            <div id="pre-pop" class="row  teal lighten-4">
-                <div id="custom" class="col s12 m12 l12">
-                    <form id="custom-new" class="input-field col s6">
+            <div id="pre-pop" class="row teal lighten-4">
+                <div id="custom" class="col s6 m6 l6">
+                    <div id="default-list">
+                        <p>default </p>
+                    </div>
+                    <form id="custom-new" class="input-field">
                         <input type="text" id="add-more-cont" placeholder="ADD ITEMS" class="white-text">
                         <button class="btn waves-effect waves-light hoverable cyan darken-2" type="button"
                             id="add-more">add item</button>
@@ -70,29 +73,19 @@
                     <!-- this is where you will see what is and isnt packed/checked off? -->
                     <!--NIC --  Use checkboxes when looking for yes or no answers. true false? The for attribute is necessary to bind our custom checkbox with the input.
                  Add the input's id as the value of the for attribute of the label. -->
-                    <div id="custom-list" class="col s6">
+                    <div id="custom-list">
                         <p>not packed</p>
                     </div>
-                    <div id="packed-list" class="col s6">
+ </div>
+
+                    <!-- -------------------------- -->
+
+                    <div id="packed-list" class="col s6 m6 l6">
                         <p>packed</p>
                     </div>
-                    <form action="#">
-                        <p>
-                            <label>
-                                <input class="col s6" type="checkbox" />
-                                <span>not packed</span>
-                               
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span>packed</span>
-                                <!-- <ul id="packed"></ul> -->
-                            </label>
-                        </p>
+
                     </form>
-                </div>
+               
                 <!-- -------------------------------------------------------------------------------------------------- -->
             </div>
         </div>
