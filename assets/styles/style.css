@@ -11,21 +11,47 @@
   .nav-content {
     border: red solid 2px ;
   } */
+/* optional picture added to background - easy to change replace URL  */
+body {
+  background-image: url("https://images.unsplash.com/photo-1526763025764-2a8073a0cd43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHJvYWR0cmlwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
 
 #testing {
-    border-color: #0097a7;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 10px;
-    display: block;
-    width: 50%;
-    height: 50%;
-    transition: background-color 2s, transform 2s;
+  border-color: #0097a7;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 10px;
+  display: block;
+  width: 50%;
+  height: 50%;
+  transition: background-color 2s, transform 2s;
 }
 
 footer {
-    position: fixed;
-    padding: 10px 10px 0px 10px;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.5;
+  /* Firefox */
+}
+
+/* -------------------STASH.HTML CSS--------------------- */
+#sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;"
 }
