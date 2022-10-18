@@ -10,12 +10,40 @@ var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
 var customItems = []; //array of items inside #custom list
 var customPacked = []; //array of items inside #packed list
 var newItemArr = [];
-//object to hold all data, NOT IN USE
-// var userTrip = {
-//     items: customItems,
-//     itemsPacked: customPacked
-// };
+var dashData
+var dashDataArr = [];
 
+function dashboardDataInit(){
+    //get item location from local storage - this is used to name all the other local storage keys
+    
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    dashData = dashData.split(' ');
+    console.log('dashdata ' + dashData);
+    console.log(typeof 'dashdata ' + dashData);
+    //dashDataArr = dashData;
+    localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+    dashboardData();
+    
+    
+     
+       // window.localStorage.removeItem('userLocation');
+        //dashDataArr = dashData.split(' ');
+        //dashData = JSON.parse(localStorage.getItem('locationArray'));
+        //localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+    
+        }
+    
+        function dashboardData() {
+            dashDataFromStorage = JSON.parse(localStorage.getItem('locationArray'));
+            console.log(typeof dashDataFromStorage);
+            console.log(dashDataFromStorage);
+            if (!dashDataFromStorage.includes(dashData)) {
+                dashDataArr.push(dashData);
+                console.log(dashDataArr);
+                console.log(typeof dashDataArr);
+                localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+            }
+        }
 
 
 
@@ -38,7 +66,7 @@ function populteBasic() {
             customItems.push(i);
             customListEl.appendChild(listCustom);
 
-            localStorage.setItem('customItems', JSON.stringify(customItems));
+            localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
             // //FOR CHECKBOX'S
             // var listCustom = document.createElement('input');
             // listCustom.type = 'checkbox';
@@ -62,7 +90,7 @@ function populteBasic() {
 //-------------------------POPULATES UNPACKED ITEMS-----------------------------------------------------------
 //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
 function populteCustom() {
-    var customItems = JSON.parse(localStorage.getItem('customItems'));
+    var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     //if (customItems != null) {
         for (var i = 0; i < customItems.length; i++) {
             var listCreate = document.createElement('button');
@@ -78,7 +106,7 @@ function populteCustom() {
 //-----------------------------------------------------------------------------------------------------
 //-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
 function addMore() {
-     customItems = JSON.parse(localStorage.getItem('customItems'));
+     customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var newItem = document.querySelector('#add-more-cont').value;
     newItemArr = newItem;
     customItems.push(newItemArr);
@@ -87,14 +115,14 @@ function addMore() {
     listCreate.setAttribute('id', newItem);
     listCreate.addEventListener('click', packedList);
     customListEl.appendChild(listCreate);
-    localStorage.setItem('customItems', JSON.stringify(customItems));
+    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
 
 
 };
 //--------------------------------------------------------------------------------------------------------
 //-----------------------MOVE ITEMS FROM UNPACKED TO PACKED-------------------------------------------------
 function packedList(evt) {
-    customItems = JSON.parse(localStorage.getItem('customItems'));
+    customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var clickedItem = (evt.target.id); //gets id of clicked button
 
     var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
@@ -116,18 +144,18 @@ function packedList(evt) {
         }
     };
     
-    localStorage.setItem('customItems', JSON.stringify(customItems));
+    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
 
 // ERROR ERROR CREATING OBJECT NOT ARRAY
     customPacked.push(clickedItem);
 
-    localStorage.setItem('customPacked', JSON.stringify(customPacked));
+    localStorage.setItem(dashData + 'customPacked', JSON.stringify(customPacked));
 
 };
 //-------------------------------------------------------------------------------------------------------
 // ----------------------------------------- POPULATE PACKED --------------------------------------------
 function populatePacked() {
-    customPacked = JSON.parse(localStorage.getItem('customPacked'));
+    customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
     //customPackedArr = Object.values(customPacked);
 
     if (customPacked != null) {
@@ -145,21 +173,23 @@ function populatePacked() {
 // --------------------------------------------------------------------------------------------------------
 //--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
 function unpackList(evt) {
-    packedList = JSON.parse(localStorage.getItem('custompacked'));
+    packedList = JSON.parse(localStorage.getItem(dashData + 'custompacked'));
     var clickedPacked = (evt.target.id);
 
 };
 //---------------------------------------------------------------------------------------------------------
 function init() {
-    var  customItems = JSON.parse(localStorage.getItem('customItems'));
-    var customPacked = JSON.parse(localStorage.getItem('customPacked'));
+    var  customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+    var customPacked = JSON.parse(localStorage.getItem(dashData +'customPacked'));
     if (customItems != null) {
         populteCustom();
         if (customPacked != null) {
             populatePacked();
+            dashboardDataInit();
         }
     } else {
         populteBasic();
+        dashboardDataInit();
     };
 }
 
