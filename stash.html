@@ -27,6 +27,7 @@
         </div>
 
         <div class="nav-content">
+      
             <!-- Dynamically generated title of searched city from the users search -->
 
         </div>
@@ -73,7 +74,7 @@
                     <!-- this is where you will see what is and isnt packed/checked off? -->
                     <!--NIC --  Use checkboxes when looking for yes or no answers. true false? The for attribute is necessary to bind our custom checkbox with the input.
                  Add the input's id as the value of the for attribute of the label. -->
-                    <div id="custom-list">
+                    <div id="custom-list" class="col s6">
                         <p>not packed</p>
                     </div>
  </div>
@@ -84,13 +85,27 @@
                         <p>packed</p>
                       
                     </div>
-
+                    <form action="#">
+                        <p>
+                            <label>
+                                <input class="col s6" type="checkbox" />
+                                <span>not packed</span>
+                               
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in" checked="checked" />
+                                <span>packed</span>
+                                <!-- <ul id="packed"></ul> -->
+                            </label>
+                        </p>
                     </form>
-               
+                </div>
                 <!-- -------------------------------------------------------------------------------------------------- -->
             </div>
         </div>
 
     </div>
-
+    <script src='./assets/scripts/stash.js'></script>
 </body>
