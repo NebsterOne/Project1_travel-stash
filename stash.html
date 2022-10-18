@@ -24,11 +24,11 @@
     <nav class="nav-extended card-panel cyan darken-2 row">
         <div class="nav-wrapper">
             <!-- BRAND  -->
-            <a href="#!" class="brand-logo align-center">Travel Stash</a>
+            <h1 class="top flow-text">Travel Stash</h1>
         </div>
 
         <div class="nav-content">
-
+            <p></p>
             <!-- Dynamically generated title of searched city from the users search -->
 
         </div>
@@ -38,23 +38,9 @@
 
     <!-- Page Layout here-------------------------------------------------------------------------- -->
     <div id="pageContent" class="row">
- 
-        <div class="col s12 m12 l3">
-            <!-- Grey navigation panel -->
 
-            <div class="row">
-                <form class="col s12">
-                  <div id="sidebar" class="row cyan lighten-5">
-                    <div class="input-field col s12">
-                      <textarea id="textarea1" class="materialize-textarea"></textarea>
-                      <label for="textarea1">Notes</label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-        </div>
 
-        <div class="col s12 m12 l9">
+        <div class="col s12 m9 l9">
             <!-- main page content  ------------------------------------------------------------------------------->
             <!-- map goes here -->
             <div class="row teal lighten-4">
@@ -66,15 +52,15 @@
 
             <!-- This will be where the weather forecast will go -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weather" class="">
+                <div id="weather" class="col s12 m12 l12">
                     <div><img class="center-align col s12 m12 l12" width="650"
                             src="./assets/images/weather-default.jpg"></div>
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
-            <div id="pre-pop" class="row teal lighten-4">
+            <div id="checklist" class="row teal lighten-4">
                 <div id="custom" class="col s6 m6 l6">
-                    <div id="default-list">
+                    <div id="pre-pop">
                         <p>Choose from default items: </p>
                         <hr>
                     </div>
@@ -97,18 +83,31 @@
                 <div id="packed-list" class="col s6 m6 l6">
                     <p>Packed:</p>
                     <hr>
-
                 </div>
-
-
             </div>
             <!-- -------------------------------------------------------------------------------------------------- -->
         </div>
+
+        <div class="col s12 m3 l3">
+            <!-- Grey navigation panel -->
+
+            <div class="row">
+                <form class="col s12">
+                    <div id="sidebar" class="row cyan lighten-5">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Notes</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    </div>   
-     <script type="text/javascript" src="js/materialize.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src='./assets/scripts/stash.js'></script>
- 
+
 </body>

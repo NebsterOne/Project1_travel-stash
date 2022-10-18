@@ -52,7 +52,11 @@ footer {
   height: 90%;
 
 }
-
+#map,
+#weather,
+#checklist {
+  padding:25px;
+}
   /* Changing display state for new location function */
 
   #new-trip {
@@ -61,6 +65,4 @@ footer {
 
   #pageContent {
     margin: 25px;
-
-
   }
