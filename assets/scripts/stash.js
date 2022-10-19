@@ -13,85 +13,72 @@ var newItemArr = [];
 var dashData
 var dashDataArr = [];
 
-function dashboardDataInit(){
+function dashboardDataInit() {
     //get item location from local storage - this is used to name all the other local storage keys
-    
+
     dashData = JSON.parse(localStorage.getItem('userLocation'));
-    dashData = dashData.split(' ');
     console.log('dashdata ' + dashData);
-    console.log(typeof 'dashdata ' + dashData);
-    //dashDataArr = dashData;
+    console.log(typeof dashData); //string
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
+    if (!dashDataArr.includes(dashData)) {
+        dashDataArr.push(dashData);
+    }
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-    dashboardData();
-    
-    
-     
-       // window.localStorage.removeItem('userLocation');
-        //dashDataArr = dashData.split(' ');
-        //dashData = JSON.parse(localStorage.getItem('locationArray'));
-        //localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-    
-        }
-    
-        function dashboardData() {
-            dashDataFromStorage = JSON.parse(localStorage.getItem('locationArray'));
-            console.log(typeof dashDataFromStorage);
-            console.log(dashDataFromStorage);
-            if (!dashDataFromStorage.includes(dashData)) {
-                dashDataArr.push(dashData);
-                console.log(dashDataArr);
-                console.log(typeof dashDataArr);
-                localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-            }
-        }
+    //dashboardData();
+}
 
 
 
-//When I open stash page i am presented with a a list of default items to take on my trip
-function populteBasic() {
+    // window.localStorage.removeItem('userLocation');
+    //dashDataArr = dashData.split(' ');
+    //dashData = JSON.parse(localStorage.getItem('locationArray'));
+    //localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
 
-    basicItems.forEach(i => { // creates buttons from basic items array
-        var buttonBasic = document.createElement('button');
-        buttonBasic.setAttribute('id', i); //set ID for for each created button to value of button
-        buttonBasic.innerHTML = i;
+    // }
 
-        buttonBasic.addEventListener('click', function () { //event listener for each created button
-            var buttRemove = document.getElementById(i);
-            buttRemove.parentNode.removeChild(buttRemove); //removes button after clicking
+    // function dashboardData() {
+    //     dashDataFromStorage = JSON.parse(localStorage.getItem('locationArray'));
+    //     console.log(typeof dashDataFromStorage);
+    //     console.log(dashDataFromStorage);
+    //     if (!dashDataFromStorage.includes(dashData)) {
+    //         dashDataArr.push(dashData);
+    //         console.log(dashDataArr);
+    //         console.log(typeof dashDataArr);
+    //         localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+    //     }
+    // }
 
-            var listCustom = document.createElement('button');
-            listCustom.innerHTML = i;
-            listCustom.setAttribute('id', i);
-            listCustom.addEventListener('click', packedList);
-            customItems.push(i);
-            customListEl.appendChild(listCustom);
 
-            localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
-            // //FOR CHECKBOX'S
-            // var listCustom = document.createElement('input');
-            // listCustom.type = 'checkbox';
-            // listCustom.name = 'name';
-            // listCustom.value = 'value';
-            // listCustom.className = 'customBox'
-            // listCustom.id = i;
 
-            // var label = document.createElement('label');
-            // label.htmlFor = i;
-            // label.appendChild(document.createTextNode(i))
+    //When I open stash page i am presented with a a list of default items to take on my trip
+    function populteBasic() {
 
-            // customIdEl.appendChild(listCustom);
-            // customListEl.appendChild(label);
-            // customItems.push(i); //adds clicked item to custom items array
-            // console.log(userTrip);
+        basicItems.forEach(i => { // creates buttons from basic items array
+            var buttonBasic = document.createElement('button');
+            buttonBasic.setAttribute('id', i); //set ID for for each created button to value of button
+            buttonBasic.innerHTML = i;
+
+            buttonBasic.addEventListener('click', function () { //event listener for each created button
+                var buttRemove = document.getElementById(i);
+                buttRemove.parentNode.removeChild(buttRemove); //removes button after clicking
+
+                var listCustom = document.createElement('button');
+                listCustom.innerHTML = i;
+                listCustom.setAttribute('id', i);
+                listCustom.addEventListener('click', packedList);
+                customItems.push(i);
+                customListEl.appendChild(listCustom);
+
+                localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
+            });
+            prePopEl.appendChild(buttonBasic);
         });
-        prePopEl.appendChild(buttonBasic);
-    });
-};
-//-------------------------POPULATES UNPACKED ITEMS-----------------------------------------------------------
-//When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
-function populteCustom() {
-    var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
-    //if (customItems != null) {
+    };
+    //-------------------------POPULATES UNPACKED ITEMS-----------------------------------------------------------
+    //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
+    function populteCustom() {
+        var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+        //if (customItems != null) {
         for (var i = 0; i < customItems.length; i++) {
             var listCreate = document.createElement('button');
             listCreate.setAttribute('id', customItems[i]);
@@ -99,109 +86,104 @@ function populteCustom() {
             listCreate.addEventListener('click', packedList)
             customListEl.appendChild(listCreate);
         }
-    //} else {
-     //   return;
-    //}
-};
-//-----------------------------------------------------------------------------------------------------
-//-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
-function addMore() {
-     customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
-    var newItem = document.querySelector('#add-more-cont').value;
-    newItemArr = newItem;
-    customItems.push(newItemArr);
-    var listCreate = document.createElement('button');
-    listCreate.innerHTML = newItem;
-    listCreate.setAttribute('id', newItem);
-    listCreate.addEventListener('click', packedList);
-    customListEl.appendChild(listCreate);
-    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
-
-
-};
-//--------------------------------------------------------------------------------------------------------
-//-----------------------MOVE ITEMS FROM UNPACKED TO PACKED-------------------------------------------------
-function packedList(evt) {
-    customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
-    var clickedItem = (evt.target.id); //gets id of clicked button
-
-    var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
-    clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
-
-    var moveToPacked = document.createElement('button');
-    moveToPacked.innerHTML  = clickedItem;
-
-
-    moveToPacked.setAttribute('id', clickedItem);
-    moveToPacked.addEventListener('click', unpackList);
-    packedListEl.appendChild(moveToPacked);
-
-
-
-    for (var i = 0; i < customItems.length; i++){
-        if (customItems[i] === clickedItem) {
-            customItems.splice(i, 1);
-        }
+        //} else {
+        //   return;
+        //}
     };
-    
-    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
+    //-----------------------------------------------------------------------------------------------------
+    //-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
+    function addMore() {
+        customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+        var newItem = document.querySelector('#add-more-cont').value;
+        newItemArr = newItem;
+        customItems.push(newItemArr);
+        var listCreate = document.createElement('button');
+        listCreate.innerHTML = newItem;
+        listCreate.setAttribute('id', newItem);
+        listCreate.addEventListener('click', packedList);
+        customListEl.appendChild(listCreate);
+        localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
 
-// ERROR ERROR CREATING OBJECT NOT ARRAY
-    customPacked.push(clickedItem);
 
-    localStorage.setItem(dashData + 'customPacked', JSON.stringify(customPacked));
+    };
+    //--------------------------------------------------------------------------------------------------------
+    //-----------------------MOVE ITEMS FROM UNPACKED TO PACKED-------------------------------------------------
+    function packedList(evt) {
+        customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+        var clickedItem = (evt.target.id); //gets id of clicked button
 
-};
-//-------------------------------------------------------------------------------------------------------
-// ----------------------------------------- POPULATE PACKED --------------------------------------------
-function populatePacked() {
-    customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
-    //customPackedArr = Object.values(customPacked);
+        var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
+        clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
 
-    if (customPacked != null) {
-        for (var i = 0; i < customPacked.length; i++) {
-            var packedCreate = document.createElement('button');
-            packedCreate.setAttribute('id', packedCreate[i]);
-            packedCreate.innerHTML = customPacked[i];
-            packedCreate.addEventListener('click', unpackList)
-            packedListEl.appendChild(packedCreate);
-        }
-    } else {
-        return;
-    }
-};
-// --------------------------------------------------------------------------------------------------------
-//--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
-function unpackList(evt) {
-    packedList = JSON.parse(localStorage.getItem(dashData + 'custompacked'));
-    var clickedPacked = (evt.target.id);
+        var moveToPacked = document.createElement('button');
+        moveToPacked.innerHTML = clickedItem;
 
-};
-//---------------------------------------------------------------------------------------------------------
-function init() {
-    var  customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
-    var customPacked = JSON.parse(localStorage.getItem(dashData +'customPacked'));
-    if (customItems != null) {
-        populteCustom();
+
+        moveToPacked.setAttribute('id', clickedItem);
+        moveToPacked.addEventListener('click', unpackList);
+        packedListEl.appendChild(moveToPacked);
+
+
+
+        for (var i = 0; i < customItems.length; i++) {
+            if (customItems[i] === clickedItem) {
+                customItems.splice(i, 1);
+            }
+        };
+
+        localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
+
+        // ERROR ERROR CREATING OBJECT NOT ARRAY
+        customPacked.push(clickedItem);
+
+        localStorage.setItem(dashData + 'customPacked', JSON.stringify(customPacked));
+
+    };
+    //-------------------------------------------------------------------------------------------------------
+    // ----------------------------------------- POPULATE PACKED --------------------------------------------
+    function populatePacked() {
+        customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
+        //customPackedArr = Object.values(customPacked);
+
         if (customPacked != null) {
-            populatePacked();
-            dashboardDataInit();
+            for (var i = 0; i < customPacked.length; i++) {
+                var packedCreate = document.createElement('button');
+                packedCreate.setAttribute('id', packedCreate[i]);
+                packedCreate.innerHTML = customPacked[i];
+                packedCreate.addEventListener('click', unpackList)
+                packedListEl.appendChild(packedCreate);
+            }
+        } else {
+            return;
         }
-    } else {
-        populteBasic();
-        dashboardDataInit();
     };
-}
+    // --------------------------------------------------------------------------------------------------------
+    //--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
+    function unpackList(evt) {
+        packedList = JSON.parse(localStorage.getItem(dashData + 'custompacked'));
+        var clickedPacked = (evt.target.id);
 
-addMoreBtn.addEventListener('click', addMore);
-init()
+    };
+    //---------------------------------------------------------------------------------------------------------
+    function init() {
+        var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+        var customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
+        if (customItems != null) {
+            populteCustom();
+            if (customPacked != null) {
+                populatePacked();
+                dashboardDataInit();
+            }
+        } else {
+            populteBasic();
+            dashboardDataInit();
+        };
+    }
 
+    addMoreBtn.addEventListener('click', addMore);
+    init()
 
-
-
-
-
-// let boxes = document.getElementsByClassName('box').length;
+    // let boxes = document.getElementsByClassName('box').length;
 
 // function save() {	
 //   for(let i = 1; i <= boxes; i++){
@@ -217,4 +199,4 @@ init()
 //     document.getElementById(String(i)).checked = checked;
 //   }
 // }
-// window.addEventListener('change', save);
+// window.addEventListener('change', save))
