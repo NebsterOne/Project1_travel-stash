@@ -177,10 +177,19 @@ function dashboardDataInit() {
 
 
 //------------------------------------
-// //------------------------------------
-// $('#textarea1').val('New Text');
-// M.textareaAutoResize($('#textarea1'));
+//------------------------------------
 
 
-//------------------------------------
-//------------------------------------
+function saveNotes() {
+
+    var savebtn = document.getElementById('savenotes')
+      var notes = document.getElementById('input_text').valueOf.textContent;
+    
+    
+      savebtn.addEventListener("click", () => {
+      
+     localStorage.setItem("Notes:", JSON.stringify(notes));
+    
+     console.log(notes);
+    
+      })};
