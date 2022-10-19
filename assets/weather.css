@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(126, 176, 180);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url(./images/weathercloudssky.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#weather {
+  visibility: hidden;
+}
+
+.card {
+  background-color: none;
+  color: rgb(213, 248, 248);
+  padding: 2em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  margin: 1em;
+}
+
+.search {
+  display: flex;
+  max-width: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 2.5em;
+  height: 60px;
+  width: 120px;
+  border: none;
+  color: rgb(11, 93, 165);
+  background-color: rgb(160, 239, 245);
+  font-size: 120%;
+}
+
+button:hover {
+  background-color: aliceblue;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input {
+  margin: .5em;
+  height: 60px;
+  max-width: max-content;
+  border: none;
+  font-size: 120%;
+  color: rgb(0, 6, 10);
+  background-color: rgb(160, 239, 245);
+}
