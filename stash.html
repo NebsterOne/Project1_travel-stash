@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <!-- Our custom .css file - It is placed here to override any links above -->
     <link rel="stylesheet" href="./assets/styles/style.css">
     <!-- Title Bar  -->
@@ -18,16 +19,15 @@
 
 
 <body>
-
     <!-- Navbar goes here -->
     <nav class="nav-extended card-panel cyan darken-2 row">
         <div class="nav-wrapper">
             <!-- BRAND  -->
-            <a href="#!" class="brand-logo align-center">Travel Stash</a>
+            <h1 class="top flow-text">Travel Stash</h1>
         </div>
 
         <div class="nav-content">
-      
+            <p></p>
             <!-- Dynamically generated title of searched city from the users search -->
 
         </div>
@@ -36,38 +36,35 @@
 
 
     <!-- Page Layout here-------------------------------------------------------------------------- -->
-    <div class="row">
+    <div id="pageContent" class="row">
 
-        <div class="col s12 m3 l3">
-            <!-- Grey navigation panel -->
-            <div id="sidebar" class="cyan lighten-5 ">
-                <p>This is optional, if we want to put any additional things here as a sidebar</p>
-            </div>
-        </div>
 
         <div class="col s12 m9 l9">
             <!-- main page content  ------------------------------------------------------------------------------->
             <!-- map goes here -->
             <div class="row teal lighten-4">
                 <div id="map" class="col s12 m12 l12">
-                    <div><img class="center-align col s12 m12 l12" width="650"  src="./assets/images/map-default.jpg"></div>
+                    <div><img class="center-align col s12 m12 l12" width="650" src="./assets/images/map-default.jpg">
+                    </div>
                 </div>
             </div>
 
             <!-- This will be where the weather forecast will go -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weather" class="">
-                    <div><img class="center-align col s12 m12 l12" width="650" src="./assets/images/weather-default.jpg"></div>
+                <div id="weather" class="col s12 m12 l12">
+                    <div><img class="center-align col s12 m12 l12" width="650"
+                            src="./assets/images/weather-default.jpg"></div>
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
-            <div id="pre-pop" class="row teal lighten-4">
+            <div id="checklist" class="row teal lighten-4">
                 <div id="custom" class="col s6 m6 l6">
-                    <div id="default-list">
-                        <p>default </p>
+                    <div id="pre-pop">
+                        <p>Choose from default items: </p>
+                        <hr>
                     </div>
                     <form id="custom-new" class="input-field">
-                        <input type="text" id="add-more-cont" placeholder="ADD ITEMS" class="white-text">
+                        <input type="text" id="add-more-cont" placeholder="Enter Item" class="white-text">
                         <button class="btn waves-effect waves-light hoverable cyan darken-2" type="button"
                             id="add-more">add item</button>
                     </form>
@@ -75,37 +72,41 @@
                     <!--NIC --  Use checkboxes when looking for yes or no answers. true false? The for attribute is necessary to bind our custom checkbox with the input.
                  Add the input's id as the value of the for attribute of the label. -->
                     <div id="custom-list" class="col s6">
-                        <p>not packed</p>
+                        <p>To Pack:</p>
+                        <hr>
                     </div>
- </div>
-
-                    <!-- -------------------------- -->
-
-                    <div id="packed-list" class="col s6 m6 l6">
-                        <p>packed</p>
-                      
-                    </div>
-                    <form action="#">
-                        <p>
-                            <label>
-                                <input class="col s6" type="checkbox" />
-                                <span>not packed</span>
-                               
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span>packed</span>
-                                <!-- <ul id="packed"></ul> -->
-                            </label>
-                        </p>
-                    </form>
                 </div>
-                <!-- -------------------------------------------------------------------------------------------------- -->
+
+                <!-- -------------------------- -->
+
+                <div id="packed-list" class="col s6 m6 l6">
+                    <p>Packed:</p>
+                    <hr>
+                </div>
             </div>
+            <!-- -------------------------------------------------------------------------------------------------- -->
         </div>
 
+        <div class="col s12 m3 l3">
+            <!-- Grey navigation panel -->
+
+            <div class="row">
+                <form class="col s12">
+                    <div id="sidebar" class="row cyan lighten-5">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Notes</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src='./assets/scripts/stash.js'></script>
+
 </body>

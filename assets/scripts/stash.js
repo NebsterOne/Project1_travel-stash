@@ -24,30 +24,7 @@ function dashboardDataInit() {
         dashDataArr.push(dashData);
     }
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-    //dashboardData();
 }
-
-
-
-    // window.localStorage.removeItem('userLocation');
-    //dashDataArr = dashData.split(' ');
-    //dashData = JSON.parse(localStorage.getItem('locationArray'));
-    //localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-
-    // }
-
-    // function dashboardData() {
-    //     dashDataFromStorage = JSON.parse(localStorage.getItem('locationArray'));
-    //     console.log(typeof dashDataFromStorage);
-    //     console.log(dashDataFromStorage);
-    //     if (!dashDataFromStorage.includes(dashData)) {
-    //         dashDataArr.push(dashData);
-    //         console.log(dashDataArr);
-    //         console.log(typeof dashDataArr);
-    //         localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-    //     }
-    // }
-
 
 
     //When I open stash page i am presented with a a list of default items to take on my trip
@@ -78,7 +55,6 @@ function dashboardDataInit() {
     //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
     function populteCustom() {
         var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
-        //if (customItems != null) {
         for (var i = 0; i < customItems.length; i++) {
             var listCreate = document.createElement('button');
             listCreate.setAttribute('id', customItems[i]);
@@ -86,9 +62,7 @@ function dashboardDataInit() {
             listCreate.addEventListener('click', packedList)
             customListEl.appendChild(listCreate);
         }
-        //} else {
-        //   return;
-        //}
+ 
     };
     //-----------------------------------------------------------------------------------------------------
     //-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
@@ -199,4 +173,14 @@ function dashboardDataInit() {
 //     document.getElementById(String(i)).checked = checked;
 //   }
 // }
-// window.addEventListener('change', save))
+// window.addEventListener('change', save);
+
+
+//------------------------------------
+//------------------------------------
+$('#textarea1').val('New Text');
+M.textareaAutoResize($('#textarea1'));
+
+
+//------------------------------------
+//------------------------------------
