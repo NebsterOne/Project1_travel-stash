@@ -15,54 +15,63 @@
 // which will display the result on html
 
 //fetch function
-//1.Declare the function 2.
+//1.Declare the function 
 
-function fetchData(city){
+function fetchData(city) {
     var apiKey = '549aae77a3dc08100f08e1988c47e726';
     fetch('https://api.openweathermap.org/data/2.5/forecast?q='
-    + city + '&units=metric&appid='
-    + apiKey)
-    .then((response) => response.json())
-    .then((data) => displayWeather(data));
+        + city + '&units=metric&appid='
+        + apiKey)
+        .then((response) => response.json())
+        .then((data) => displayWeather(data));
     // console.log(data);
 
 }
 
-function displayWeather(myData){
-    console.log(myData);
-    console.log("CNT:",myData.cnt );
+function displayWeather(myData) {
+    //  console.log(myData);
+    console.log("location:", myData.city.name);
+    console.log("temperature:", myData.list[0].main.temp);
+    console.log("description:", myData.list[0].weather[0].description);
+    console.log("humidity:", myData.list[0].main.humidity);
+    console.log("wind:", myData.list[0].wind.speed);
 
-    console.log("List:",myData.list );
-    console.log("1st List item:",myData.list[0] );
-    console.log("date for first item:",myData.list[0].dt)
-    var datepage = document.createElement('h3')
-;
-datepage.innerText =myData.list[0].dt;
-appea
-
+    document.querySelector('#dynamCity').innerText = myData.city.name;
+    document.querySelector('#dynamTemp').innerText = myData.list[0].main.temp.toFixed(1);
+    document.querySelector('#dynamDescription').innerText = myData.list[0].weather[0].description;
+    document.querySelector('#dynamHumidity').innerText = myData.list[0].main.humidity;
+    document.querySelector('#dynamWind').innerText = myData.list[0].wind.speed;
+    document.querySelector('#weather').style.visibility = 'visible';
 }
 
+function updateWeather() {
+    var city = document.querySelector('#cityInput').value;
+    fetchData(city);
+}
+document.querySelector('#searchButton').addEventListener('click', updateWeather);
+document.querySelector('#cityInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        updateWeather();
+    }
+});
 
 
-fetchData('adelaide');
+
+//fetchData('adelaide');
+
+//document.querySelector('#searchButton').addEventListener('click', (e) => {
+//    fetchData(document.querySelector('#cityInput').value)
+//});
 
 
-// var weather = { 
-// apiKey: '549aae77a3dc08100f08e1988c47e726',
-// fetchWeather: function (city){
-//     fetch(
-//     'https://api.openweathermap.org/data/2.5/forecast?q='
-//      + city + '&units=metric&appid='
-//      + this.apiKey 
-//     )
-//     .then((response) => response.json())
-//     .then((data) => this.displayWeather(data));
-//     console.log(data);
+//var city = document.querySelector('#cityInput').value
+//fetchData(city)
+
+
 
 // let forecastDiv = document.getElementById("weather")
-//                 //forecastDiv.style.display = "flex"
-//                 let parentDiv = document.createElement("div")
-//                 parentDiv.style.display = "flex";
+//document.querySelector('.city').innerText = "Weather in " + city;
+//document.querySelector('CNT')
 
 // for (i = 0; i < 40; i += 8) {
 //     console.log(data);
@@ -94,7 +103,7 @@ const { icon, description } = data.weather[0];
 const {temp, humidity} = data.main;
 const { speed } = data.wind
 console.log(name, icon, description, temp, humidity, speed)
-document.querySelector('.city').innerText = "Weather in " + name;
+
 }
 };
 */
