@@ -151,6 +151,10 @@ function unpackList(evt) {
 };
 //---------------------------------------------------------------------------------------------------------
 function init() {
+    //This is for the Stash Notes --- Rickelle 
+    saveNotes();
+//-----------------------
+
     var  customItems = JSON.parse(localStorage.getItem('customItems'));
     var customPacked = JSON.parse(localStorage.getItem('customPacked'));
     if (customItems != null) {
@@ -192,9 +196,18 @@ init()
 
 //------------------------------------
 //------------------------------------
-$('#textarea1').val('New Text');
-M.textareaAutoResize($('#textarea1'));
 
 
-//------------------------------------
-//------------------------------------
+function saveNotes() {
+
+    var savebtn = document.getElementById('savenotes')
+      var notes = document.getElementById('input_text').valueOf.textContent;
+    
+    
+      savebtn.addEventListener("click", () => {
+      
+     localStorage.setItem("Notes:", JSON.stringify(notes));
+    
+     console.log(notes);
+    
+      })};
