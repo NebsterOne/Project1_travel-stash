@@ -52,6 +52,11 @@ footer {
   height: 90%;
 
 }
+#notes {
+  height: 90%;
+}
+
+
 #map,
 #weather,
 #checklist {
