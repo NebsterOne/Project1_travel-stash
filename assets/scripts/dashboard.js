@@ -31,7 +31,11 @@ function createNewTrip() {
 
 function populteTrips() {
     var trips = JSON.parse(localStorage.getItem('locationArray'));
-    console.log(trips);
+    if (trips === null) {
+        return;
+    }
+console.log(typeof trips);
+
 
 
     for (var i = 0; i < trips.length; i++) {
