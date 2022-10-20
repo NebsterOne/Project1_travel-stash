@@ -43,6 +43,34 @@ function dashboardDataInit() {
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
 }
 
+// This is a horrible piece of code on Fist load to work around the local storage being empty, then had to manage the fact that the 2nd time it loaded it was a string, so the .includes would not run, need DRY moethod of doing this!
+function dashboardDataInit() {
+    //get item location from local storage - this is used to name all the other local storage keys
+    dashData = JSON.parse(localStorage.getItem('userLocation')); //AG
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray')); //AG
+
+    if (dashDataArr === null) {
+        dashDataArr = dashData
+        dashDataArr = dashDataArr.split(' ')
+        localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+        console.log(typeof dashDataArr);
+    };
+
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
+    console.log(typeof dashDataArr);
+
+
+
+    console.log(dashDataArr);
+
+    if (!dashDataArr.includes(dashData)) {
+        dashDataArr.push(dashData);
+    }
+    console.log(dashDataArr)
+
+    localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+}
+
 
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
@@ -201,16 +229,16 @@ init()
 
 
 function saveNotes() {
-
+    
     var savebtn = document.getElementById('savenotes')
-    var notes = document.getElementById('input_text').valueOf.textContent;
+    var notes = document.getElementById('input_text');
 
 
     savebtn.addEventListener("click", () => {
 
-        localStorage.setItem("Notes:", JSON.stringify(notes));
+        localStorage.setItem("Notes:", (notes).value);
 
-        console.log(notes);
-
+        console.log((notes).value);
+        localStorage.getItem("Notes:", (notes).value);
     })
 };
