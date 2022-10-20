@@ -19,6 +19,8 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  margin: 0px;
+  padding: 0px;
 }
 
 #testing {
@@ -46,28 +48,43 @@ footer {
 }
 
 /* -------------------STASH.HTML CSS--------------------- */
+
+
 #sidebar {
+
   margin: 25px;
   padding: 10px;
-  height: 90%;
+  position: sticky;
+  width: auto;
+  height: 100%;
+  
+}
+
+#input_text {
+  
+  overflow:break-word;
+} 
+
+button {
+  color: #0097a7;
+  padding: 40;
+  border: none;
+  background: none;
 
 }
-#notes {
-  height: 90%;
-}
-
 
 #map,
 #weather,
 #checklist {
-  padding:25px;
+  padding: 25px;
 }
-  /* Changing display state for new location function */
 
-  #new-trip {
-    display: none;
-  }
+/* Changing display state for new location function */
 
-  #pageContent {
-    margin: 25px;
-  }
+#new-trip {
+  display: none;
+}
+
+#pageContent {
+  margin: 25px;
+}
