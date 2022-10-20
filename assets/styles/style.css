@@ -74,4 +74,6 @@ footer {
 
   #weatherContainer {
     display: flex;
+    background-size: contain;
   }
+
