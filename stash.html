@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Our custom .css file - It is placed here to override any links above -->
+    <!--   <link rel="stylesheet" href="./assets/styles/weather.css"> -->
     <link rel="stylesheet" href="./assets/styles/style.css">
     <!-- Title Bar  -->
     <title>Travel Stash</title>
@@ -39,7 +40,7 @@
     <div id="pageContent" class="row">
 
 
-        <div class="col s12 m9 l9">
+        <div class="col m9 l9">
             <!-- main page content  ------------------------------------------------------------------------------->
             <!-- map goes here -->
             <div class="row teal lighten-4">
@@ -51,13 +52,19 @@
 
             <!-- This will be where the weather forecast will go -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weather" class="col s12 m12 l12">
-                    <div><img class="center-align col s12 m12 l12" width="650"
-                            src="./assets/images/weather-default.jpg"></div>
+                <div id="weatherContainer" class="col s12 m12 l12">
+
+                    <div id="weather">
+                        <h2 class="city">Weather in <span id="dynamCity"></span></h2>
+                        <h1 class="temp"><span id="dynamTemp"></span>°C</h1>
+                        <div class="description"><span id="dynamDescription"></span></div>
+                        <div class="humidity">Humidity: <span id="dynamHumidity"></span>%</div>
+                        <div class="wind">Wind speed: <span id="dynamWind"></span>km/h</div>
+                    </div>
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
-            <div id="checklist" class="row teal lighten-4">
+            <div id="checklist" class="row teal lighten-4 ">
                 <div id="custom" class="col s6 m6 l6">
                     <div id="pre-pop">
                         <p>Choose from default items: </p>
@@ -87,28 +94,27 @@
             <!-- -------------------------------------------------------------------------------------------------- -->
         </div>
 
-        <div class="col s12 m3 l3">
+        <div id="notesCont" class="col  m3 l3">
             <!-- Grey navigation panel -->
 
-            <div class="row">
-                <form class="col s12">
-                    <div id="sidebar" class="input-field col s12">
-                        <input id="input_text" type="text" height=100%>
+            <div id="sidebar" class="row teal lighten-4 ">
+                    <div class="input-field ">
+                        <input id="input_text" type="text" ></input>
                         <label for="input_text">Notes</label>
                         <button id="savenotes" class="btn waves-effect waves-light hoverable cyan darken-2"
                             type="button">Save Notes</button>
 
+
                     </div>
             </div>
-            </form>
         </div>
-    </div>
     </div>
 
 
 
     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
 
 </body>
