@@ -64,21 +64,21 @@ function populteBasic() {
 function populteCustom() {
     var customItems = JSON.parse(localStorage.getItem('customItems'));
     //if (customItems != null) {
-        for (var i = 0; i < customItems.length; i++) {
-            var listCreate = document.createElement('button');
-            listCreate.setAttribute('id', customItems[i]);
-            listCreate.innerHTML = customItems[i];
-            listCreate.addEventListener('click', packedList)
-            customListEl.appendChild(listCreate);
-        }
+    for (var i = 0; i < customItems.length; i++) {
+        var listCreate = document.createElement('button');
+        listCreate.setAttribute('id', customItems[i]);
+        listCreate.innerHTML = customItems[i];
+        listCreate.addEventListener('click', packedList)
+        customListEl.appendChild(listCreate);
+    }
     //} else {
-     //   return;
+    //   return;
     //}
 };
 //-----------------------------------------------------------------------------------------------------
 //-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
 function addMore() {
-     customItems = JSON.parse(localStorage.getItem('customItems'));
+    customItems = JSON.parse(localStorage.getItem('customItems'));
     var newItem = document.querySelector('#add-more-cont').value;
     newItemArr = newItem;
     customItems.push(newItemArr);
@@ -101,7 +101,7 @@ function packedList(evt) {
     clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
 
     var moveToPacked = document.createElement('button');
-    moveToPacked.innerHTML  = clickedItem;
+    moveToPacked.innerHTML = clickedItem;
 
 
     moveToPacked.setAttribute('id', clickedItem);
@@ -110,15 +110,15 @@ function packedList(evt) {
 
 
 
-    for (var i = 0; i < customItems.length; i++){
+    for (var i = 0; i < customItems.length; i++) {
         if (customItems[i] === clickedItem) {
             customItems.splice(i, 1);
         }
     };
-    
+
     localStorage.setItem('customItems', JSON.stringify(customItems));
 
-// ERROR ERROR CREATING OBJECT NOT ARRAY
+    // ERROR ERROR CREATING OBJECT NOT ARRAY
     customPacked.push(clickedItem);
 
     localStorage.setItem('customPacked', JSON.stringify(customPacked));
@@ -153,9 +153,10 @@ function unpackList(evt) {
 function init() {
     //This is for the Stash Notes --- Rickelle 
     saveNotes();
-//-----------------------
 
-    var  customItems = JSON.parse(localStorage.getItem('customItems'));
+    //-----------------------
+
+    var customItems = JSON.parse(localStorage.getItem('customItems'));
     var customPacked = JSON.parse(localStorage.getItem('customPacked'));
     if (customItems != null) {
         populteCustom();
@@ -199,15 +200,16 @@ init()
 
 
 function saveNotes() {
-
+    
     var savebtn = document.getElementById('savenotes')
-      var notes = document.getElementById('input_text').valueOf.textContent;
-    
-    
-      savebtn.addEventListener("click", () => {
-      
-     localStorage.setItem("Notes:", JSON.stringify(notes));
-    
-     console.log(notes);
-    
-      })};
+    var notes = document.getElementById('input_text');
+
+
+    savebtn.addEventListener("click", () => {
+
+        localStorage.setItem("Notes:", (notes).value);
+
+        console.log((notes).value);
+
+    })
+};
