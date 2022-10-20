@@ -71,3 +71,7 @@ footer {
   #pageContent {
     margin: 25px;
   }
+
+  #weatherContainer {
+    display: flex;
+  }
