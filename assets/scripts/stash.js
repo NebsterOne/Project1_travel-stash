@@ -210,6 +210,6 @@ function saveNotes() {
         localStorage.setItem("Notes:", (notes).value);
 
         console.log((notes).value);
-
+        localStorage.getItem("Notes:", (notes).value);
     })
 };

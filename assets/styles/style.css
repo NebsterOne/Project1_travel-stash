@@ -51,24 +51,40 @@ footer {
 
 
 #sidebar {
-  width: auto;
+
   margin: 25px;
   padding: 10px;
-  position: fixed;
+  position: sticky;
+  width: auto;
+  height: 100%;
+  
 }
 
+#input_text {
+  
+  overflow:break-word;
+} 
+
+button {
+  color: #0097a7;
+  padding: 40;
+  border: none;
+  background: none;
+
+}
 
 #map,
 #weather,
 #checklist {
-  padding:25px;
+  padding: 25px;
 }
-  /* Changing display state for new location function */
 
-  #new-trip {
-    display: none;
-  }
+/* Changing display state for new location function */
 
-  #pageContent {
-    margin: 25px;
-  }
+#new-trip {
+  display: none;
+}
+
+#pageContent {
+  margin: 25px;
+}
