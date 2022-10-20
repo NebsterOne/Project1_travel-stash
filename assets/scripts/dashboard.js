@@ -40,26 +40,31 @@ console.log(typeof trips);
 
     for (var i = 0; i < trips.length; i++) {
         // need to remove the anchors and rearrasnge the appends
-        var createLink = document.createElement('a');
-        createLink.setAttribute('id', trips[i]);
-        var createDiv_col = document.createElement('div');
-        createDiv_col.setAttribute('class', 'col s12 m6 l3 ');
-        var createDiv_card = document.createElement('div');
-        createDiv_card.setAttribute('class', 'card cyan darken-2 hoverable z-depth-5');
+
+        var createDiv_col = document.createElement('div');//
+        createDiv_col.classList.add('col', 's12', 'm6', 'l3');//
+        createDiv_col.setAttribute('id', trips[i]);//
+
+        var createDiv_card = document.createElement('div');//
+        createDiv_card.classList.add('card', 'cyan', 'darken-2', 'hoverable', 'z-depth-5');//
+        createDiv_card.setAttribute('id', trips[i]);//
+
         var createDiv_cardContent = document.createElement('div');
-        createDiv_cardContent.setAttribute('class', 'card-content white-text');
+        createDiv_col.classList.add('card-content', 'white-text');//
+        createDiv_cardContent.setAttribute('id', trips[i]);
+        
         var createSpan = document.createElement('span');
-
-
-        createSpan.setAttribute('class', 'card-title');
+        createDiv_col.classList.add('card-title');//
+        createSpan.setAttribute('id', trips[i]);
         createSpan.innerHTML = trips[i];
-
+        
         var documentFragment = document.createDocumentFragment();
+        
         documentFragment.appendChild(createDiv_col);
         createDiv_col.appendChild(createDiv_card);
         createDiv_card.appendChild(createDiv_cardContent);
         createDiv_cardContent.appendChild(createSpan);
-        createSpan.appendChild(createLink);
+        //createSpan.appendChild(createLink);
         wrapperEl.appendChild(documentFragment);
 
         createDiv_col.addEventListener('click', function (evt) {
@@ -68,7 +73,7 @@ console.log(typeof trips);
 
             console.log(clickedItem);
             localStorage.setItem('userLocation', JSON.stringify(clickedItem));
-            window.location.href = './stash.html'
+           window.location.href = './stash.html'
         })
     }
 }
