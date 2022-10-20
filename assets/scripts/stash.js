@@ -13,16 +13,35 @@ var newItemArr = [];
 var dashData
 var dashDataArr = [];
 
+
+
+// This is a horrible piece of code on Fist load to work around the local storage being empty, then had to manage the fact that the 2nd time it loaded it was a string, so the .includes would not run, need DRY moethod of doing this!
 function dashboardDataInit() {
     //get item location from local storage - this is used to name all the other local storage keys
+    dashData = JSON.parse(localStorage.getItem('userLocation')); //AG
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray')); //AG
+   
+    if (dashDataArr === null) {
+        dashDataArr = dashData
+        dashDataArr = dashDataArr.split(' ')
+        localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+        console.log(typeof dashDataArr);
+    };
 
-    dashData = JSON.parse(localStorage.getItem('userLocation'));
-    console.log('dashdata ' + dashData);
-    console.log(typeof dashData); //string
     dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
+    console.log(typeof dashDataArr);
+    
+    // if (dashDataArr.length === 1) {
+    //     dashDataArr = dashDataArr.split(' ')
+    // }
+
+    console.log(dashDataArr); //returns null on initial load
+    
     if (!dashDataArr.includes(dashData)) {
         dashDataArr.push(dashData);
     }
+console.log(dashDataArr)
+
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
 }
 
