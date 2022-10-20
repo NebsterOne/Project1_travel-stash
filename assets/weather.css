@@ -37,9 +37,10 @@ button {
   margin: 2.5em;
   height: 60px;
   width: 120px;
+  border-radius: 20px;
   border: none;
   color: rgb(11, 93, 165);
-  background-color: rgb(160, 239, 245);
+  background-color: rgb(37, 220, 233);
   font-size: 120%;
 }
 
@@ -54,8 +55,9 @@ input {
   margin: .5em;
   height: 60px;
   max-width: max-content;
+  border-radius: 20px;
   border: none;
   font-size: 120%;
   color: rgb(0, 6, 10);
-  background-color: rgb(160, 239, 245);
+  background-color: rgb(37, 220, 233);
 }
