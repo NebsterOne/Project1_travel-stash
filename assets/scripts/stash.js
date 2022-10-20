@@ -3,6 +3,9 @@ var prePopEl = document.querySelector('#pre-pop');
 var customListEl = document.querySelector('#custom-list');
 var packedListEl = document.querySelector('#packed-list');
 var addMoreBtn = document.querySelector('#add-more');
+var savebtn = document.getElementById('savenotes')
+var notes = document.getElementById('input_text');
+var notesOutput = document.querySelector('.input-field');
 
 // consts and hoisted vars
 var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
@@ -12,7 +15,6 @@ var customPacked = []; //array of items inside #packed list
 var newItemArr = [];
 var dashData
 var dashDataArr = [];
-
 
 
 // This is a horrible piece of code on Fist load to work around the local storage being empty, then had to manage the fact that the 2nd time it loaded it was a string, so the .includes would not run, need DRY moethod of doing this!
@@ -195,10 +197,14 @@ function init() {
         if (customPacked != null) {
             populatePacked();
             dashboardDataInit();
+            saveNotes();
+            retrieveNotes();
         }
     } else {
         populteBasic();
         dashboardDataInit();
+        saveNotes();
+        retrieveNotes();
     };
 }
 
@@ -225,20 +231,31 @@ init()
 
 
 //------------------------------------
-//------------------------------------
+//------------------------------------    
+savebtn = document.getElementById('savenotes');
+savebtn.addEventListener("click", () => {
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    localStorage.setItem(dashData + "Notes:", (notes).value);
+    //  localStorage.setItem("Notes:", (notes).value);
 
+    console.log((notes).value);
+    //localStorage.getItem("Notes:", (notes).value);
+
+})
 
 function saveNotes() {
-    
-    var savebtn = document.getElementById('savenotes')
-    var notes = document.getElementById('input_text');
 
 
-    savebtn.addEventListener("click", () => {
+    notes = document.getElementById('input_text');
 
-        localStorage.setItem("Notes:", (notes).value);
-
-        console.log((notes).value);
-        localStorage.getItem("Notes:", (notes).value);
-    })
 };
+
+function retrieveNotes() {
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    var rtvNotes = (localStorage.getItem(dashData + "Notes:", (notes).value));
+
+    notes = document.getElementById('input_text');
+
+    notes.value = rtvNotes;
+
+}
