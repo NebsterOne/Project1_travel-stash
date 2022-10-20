@@ -12,17 +12,17 @@
 <body>
   <div class="card">
     <div class="search">
-      <input type="text" class="search-bar" placeholder="Enter City Name">
-      <button>Search</button>
+      <input id="cityInput" type="text" class="search-bar" placeholder="Enter City Name">
+      <button id="searchButton">Search</button>
     </div>
   </div>
-  <div class="weather">
-    <h2 class="city">Weather in Adelaide</h2>
-    <h1 class="temp">33°C</h1>
-    <img src="" alt="" class="icon" />
-    <div class="description">Sunny</div>
-    <div class="humidity">Humidity: 40%</div>
-    <div class="wind">Wind speed: 12.5km/h</div>
+  <div id="weather">
+    <h2 class="city">Weather in <span id="dynamCity"></span></h2>
+    <h1 class="temp"><span id="dynamTemp"></span>°C</h1>
+ <!--   <img src="" alt="" class="icon" /> -->
+    <div class="description"><span id="dynamDescription"></span></div>
+    <div class="humidity">Humidity: <span id="dynamHumidity"></span>%</div>
+    <div class="wind">Wind speed: <span id="dynamWind"></span>km/h</div>
   </div>
   <script src="./assets/weather.js"></script>
 </body>
