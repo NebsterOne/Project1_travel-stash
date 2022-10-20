@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Our custom .css file - It is placed here to override any links above -->
+    <!--   <link rel="stylesheet" href="./assets/styles/weather.css"> -->
     <link rel="stylesheet" href="./assets/styles/style.css">
     <!-- Title Bar  -->
     <title>Travel Stash</title>
@@ -51,9 +52,15 @@
 
             <!-- This will be where the weather forecast will go -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weather" class="col s12 m12 l12">
-                    <div><img class="center-align col s12 m12 l12" width="650"
-                            src="./assets/images/weather-default.jpg"></div>
+                <div id="weatherContainer" class="col s12 m12 l12">
+
+                    <div id="weather">
+                        <h2 class="city">Weather in <span id="dynamCity"></span></h2>
+                        <h1 class="temp"><span id="dynamTemp"></span>°C</h1>
+                        <div class="description"><span id="dynamDescription"></span></div>
+                        <div class="humidity">Humidity: <span id="dynamHumidity"></span>%</div>
+                        <div class="wind">Wind speed: <span id="dynamWind"></span>km/h</div>
+                    </div>
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
@@ -107,6 +114,7 @@
 
     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
 
 </body>

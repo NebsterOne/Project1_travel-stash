@@ -81,6 +81,18 @@ button {
 
 /* Changing display state for new location function */
 
+
+  #pageContent {
+    margin: 25px;
+  }
+
+  #weatherContainer {
+    display: flex;
+    background-image: url('../images/blueskyclouds.jpg');
+
+  }
+
+=======
 #new-trip {
   display: none;
 }
@@ -88,3 +100,4 @@ button {
 #pageContent {
   margin: 25px;
 }
+
