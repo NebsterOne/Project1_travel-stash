@@ -22,24 +22,6 @@ body {
 }
 
 #testing {
-<<<<<<< HEAD
-    border-color: #05d5f0;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 10px;
-    display: block;
-    width: 50%;
-    height: 50%;
-    transition: background-color 2s, transform 2s;
-}
-
-footer {
-    position: fixed;
-    padding: 10px 10px 0px 10px;
-    bottom: 0;
-    width: 100%;
-}
-=======
   border-color: #0097a7;
   border-radius: 20px;
   border-style: solid;
@@ -65,12 +47,27 @@ footer {
 
 /* -------------------STASH.HTML CSS--------------------- */
 #sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;"
+  margin: 25px;
+  padding: 10px;
+  height: 90%;
+
 }
->>>>>>> 30a3a2e626e18a7ca618d1d6997fd29706431aa6
+#notes {
+  height: 90%;
+}
+
+
+#map,
+#weather,
+#checklist {
+  padding:25px;
+}
+  /* Changing display state for new location function */
+
+  #new-trip {
+    display: none;
+  }
+
+  #pageContent {
+    margin: 25px;
+  }
