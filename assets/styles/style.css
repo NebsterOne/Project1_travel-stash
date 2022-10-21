@@ -23,6 +23,18 @@ body {
   padding: 0px;
 }
 
+.headStash {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 600%;
+  text-align: center;
+  padding-top: 10PX;
+  padding-bottom: 20px;
+}
+
+.colorChange{
+  color: rgb(252, 250, 250);
+}
+
 #testing {
   border-color: #0097a7;
   border-radius: 20px;
@@ -42,7 +54,7 @@ footer {
 }
 
 ::placeholder {
-  color: white;
+  color: rgb(12, 12, 12);
   opacity: 0.5;
   /* Firefox */
 }
