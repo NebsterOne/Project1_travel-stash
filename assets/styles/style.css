@@ -88,11 +88,12 @@ button {
 
   #weatherContainer {
     display: flex;
+    justify-content: space-evenly;
     background-image: url('../images/blueskyclouds.jpg');
-
+    background-image: contain;
   }
 
-=======
+
 #new-trip {
   display: none;
 }
