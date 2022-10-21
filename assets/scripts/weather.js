@@ -20,29 +20,36 @@ function displayWeather(myData) {
     console.log("humidity:", myData.list[0].main.humidity);
     console.log("wind:", myData.list[0].wind.speed);
 
-    document.querySelector('#dynamCity').innerText = myData.city.name;
-    document.querySelector('#dynamTemp').innerText = myData.list[0].main.temp.toFixed(1);
-    document.querySelector('#dynamDescription').innerText = myData.list[0].weather[0].description;
-    document.querySelector('#dynamHumidity').innerText = myData.list[0].main.humidity;
-    document.querySelector('#dynamWind').innerText = myData.list[0].wind.speed;
+   // document.querySelector('#dynamCity').innerText = myData.city.name;
+for(i=0;i < 40; i+=8) {
+        document.querySelector('#weather' + i + ' .city span').innerText = myData.city.name;
+        document.querySelector('#weather' + i + ' .temp span').innerText = myData.list[i].main.temp.toFixed(1);
+        document.querySelector('#weather' + i + ' .description span').innerText = myData.list[i].weather[0].description;
+        document.querySelector('#weather' + i + ' .humidity span').innerText = myData.list[i].main.humidity;
+        document.querySelector('#weather' + i + ' .wind span').innerText = myData.list[i].wind.speed;
+    }
     document.querySelector('#weather').style.visibility = 'visible';
 }
 
+
+
 function updateWeather() {
- //  var city = document.querySelector('#cityInput').value;
-   
+    //  var city = document.querySelector('#cityInput').value;
+
     var city = JSON.parse(localStorage.getItem('userLocation'));
     console.log('hello', city);
     fetchData(city);
-    
+
 }
 
 window.addEventListener('load', updateWeather);
-document.querySelector('#cityInput').addEventListener('keydown', (e) => {
+
+
+/*document.querySelector('#dynamcity').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         updateWeather();
     }
 });
-
+*/
 
 
