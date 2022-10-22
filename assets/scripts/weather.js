@@ -1,5 +1,5 @@
 
-//1.Declare the function 
+    // Declaring the function and fetching the weather API 
 
 function fetchData(city) {
     var apiKey = '549aae77a3dc08100f08e1988c47e726';
@@ -11,7 +11,7 @@ function fetchData(city) {
     // console.log(data);
 
 }
-
+    // calling display weather function and extracting 'array located' content from api
 function displayWeather(myData) {
     //  console.log(myData);
     console.log("location:", myData.city.name);
@@ -20,8 +20,9 @@ function displayWeather(myData) {
     console.log("humidity:", myData.list[0].main.humidity);
     console.log("wind:", myData.list[0].wind.speed);
 
-   // document.querySelector('#dynamCity').innerText = myData.city.name;
-for(i=0;i < 40; i+=8) {
+    // document.querySelector('#id').innerText = connecting sj and html
+    // for loop capturing (40/5) = 5 datapoints (same time each day) from 40 point array
+    for (i = 0; i < 40; i += 8) {
         document.querySelector('#weather' + i + ' .city span').innerText = myData.city.name;
         document.querySelector('#weather' + i + ' .temp span').innerText = myData.list[i].main.temp.toFixed(1);
         document.querySelector('#weather' + i + ' .description span').innerText = myData.list[i].weather[0].description;
@@ -31,8 +32,6 @@ for(i=0;i < 40; i+=8) {
     document.querySelector('#weather').style.visibility = 'visible';
 }
 
-
-
 function updateWeather() {
     //  var city = document.querySelector('#cityInput').value;
 
@@ -41,15 +40,8 @@ function updateWeather() {
     fetchData(city);
 
 }
-
+    // event listener to trigger weather automatically from dashboard data input
 window.addEventListener('load', updateWeather);
 
-
-/*document.querySelector('#dynamcity').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        updateWeather();
-    }
-});
-*/
 
 
