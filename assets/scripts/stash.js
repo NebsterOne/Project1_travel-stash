@@ -191,6 +191,12 @@ function init() {
     dashData = JSON.parse(localStorage.getItem('userLocation'));
     var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
+
+    var customHeaderEl = document.querySelector('.nav-content');
+    var customHeader = document.createElement('h5');
+    customHeader.innerHTML = dashData;
+    customHeaderEl.appendChild(customHeader);
+
     console.log('customItem' + customItems);
     if (customItems != null) {
         populteCustom();
