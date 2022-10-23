@@ -29,8 +29,9 @@ body {
 
 }
 .headStash {
+
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 600%;
+  font-size: 500%;
   text-align: center;
   padding-top: 0PX;
   padding-bottom: 20px;
@@ -122,4 +123,3 @@ button {
 #pageContent {
   margin: 25px;
 }
-
