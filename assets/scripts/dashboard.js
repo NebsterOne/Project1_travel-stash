@@ -4,40 +4,34 @@ var tripSubmit = document.querySelector('#user-sub');
 var wrapperEl = document.querySelector('#wrapper');
 
 
-
+//shows/hides the add new trip textarea
 function tripShowHide() {
-    console.log('newTrip function start');
     if (newTripEL.style.display === 'none') {
         newTripEL.style.display = 'block';
     } else {
         newTripEL.style.display = 'none';
     }
 };
-// still needs some form validation
+
+//create new trip. saves location to LS and redirects to stash page
 function createNewTrip() {
     var userLocation = document.querySelector('#u-location').value;
-
-
     localStorage.setItem('userLocation', JSON.stringify(userLocation));
-    console.log(userLocation);
 
     if (userLocation != null) {
         newTripEL.style.display = 'none';
-        window.location.href = "./stash.html"
+        window.location.href = "./stash.html";
 
     }
     newTripEL.style.display = 'none';
 
 };
-
+//populates trips from LS. had some display issues so had to revert to an older version that wasnt using classList
 function populteTrips() {
     var trips = JSON.parse(localStorage.getItem('locationArray'));
     if (trips === null) {
         return;
     }
-    console.log(typeof trips);
-
-
 
     for (var i = 0; i < trips.length; i++) {
         // need to remove the anchors and rearrasnge the appends
@@ -81,16 +75,13 @@ function populteTrips() {
 
             var clickedItem = (evt.target.id);
 
-            console.log(clickedItem);
             localStorage.setItem('userLocation', JSON.stringify(clickedItem));
-            window.location.href = './stash.html'
+            window.location.href = './stash.html';
         })
     }
 }
 
 function init() {
-    console.log('init');
-    console.log(trips);
     var trips = JSON.parse(localStorage.getItem('locationArray'));
 
     if (trips != null) {
