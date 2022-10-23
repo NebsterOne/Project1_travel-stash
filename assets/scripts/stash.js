@@ -271,5 +271,8 @@ function retrieveNotes() {
     notes = document.getElementById('input_text');
 
     notes.value = rtvNotes;
-
 }
+
+$(document).ready(function(){
+    $('.carousel').carousel();
+  });

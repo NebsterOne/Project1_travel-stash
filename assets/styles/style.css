@@ -111,8 +111,8 @@ button {
   #weatherContainer {
     display: flex;
     justify-content: space-evenly;
-    background-image: url('../images/blueskyclouds.jpg');
-    background-image: contain;
+    /* background-image: url('../images/blueskyclouds.jpg');
+    background-image: contain; */
   }
 
 
@@ -141,3 +141,14 @@ button {
   height: 400px;
   width: 100%;
 }
+
+.city {
+  font-size: small;
+}
+
+.carousel-item {
+  padding: 10px;
+  background-color:#0097a7;
+  border-radius: 10px;
+}
+
