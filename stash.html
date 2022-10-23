@@ -42,10 +42,6 @@
 
         <div class="col m9 l9">
             <!-- main page content  ------------------------------------------------------------------------------->
-            <!-- map goes here -->
-            <h1 class="mapTitle">My Google Map</h1>
-            <div id="map"></div>
-
             <script>
                 function initMap() {
                     //Map options
@@ -57,53 +53,49 @@
                     var map = new google.maps.Map(document.getElementById('map'), options);
                 }
             </script>
-            <style>
-                #map {
-                    height: 400px;
-                    width: 100%;
-                }
-            </style>
 
-            <!--
+
             <div class="row teal lighten-4">
                 <div id="map" class="col s12 m12 l12">
                     <div><img class="center-align col s12 m12 l12" width="650" src="./assets/images/map-default.jpg">
                     </div>
                 </div>
             </div>
-        -->
+
+
+
             <!-- Weather information being called from API in conjunction with JS file -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weatherContainer" class="col s12 m12 l12">
-                    <div id="weather0">
+                <div id="weatherContainer" class="col s12 m12 l12 carousel">
+                    <div id="weather0" class="carousel-item">
                         <h4 class="city"><span></span></h4>
                         <h4 class="temp"><span></span>&#8451</h4>
                         <div class="description"><span></span></div>
                         <div class="humidity">humidity: <span></span>%</div>
                         <div class="wind">wind speed: <span></span>km/h</div>
                     </div>
-                    <div id="weather8">
+                    <div id="weather8" class="carousel-item">
                         <h4 class="city"><span></span></h4>
                         <h4 class="temp"><span></span>&#8451</h4>
                         <div class="description"><span></span></div>
                         <div class="humidity">humidity: <span></span>%</div>
                         <div class="wind">wind speed: <span></span>km/h</div>
                     </div>
-                    <div id="weather16">
+                    <div id="weather16" class="carousel-item">
                         <h4 class="city"><span></span></h4>
                         <h4 class="temp"><span></span>&#8451</h4>
                         <div class="description"><span></span></div>
                         <div class="humidity">humidity: <span></span>%</div>
                         <div class="wind">wind speed: <span></span>km/h</div>
                     </div>
-                    <div id="weather24">
+                    <div id="weather24" class="carousel-item">
                         <h4 class="city"><span></span></h4>
                         <h4 class="temp"><span></span>&#8451</h4>
                         <div class="description"><span></span></div>
                         <div class="humidity">humidity: <span></span>%</div>
                         <div class="wind">wind speed: <span></span>km/h</div>
                     </div>
-                    <div id="weather32">
+                    <div id="weather32" class="carousel-item">
                         <h4 class="city"><span></span></h4>
                         <h4 class="temp"><span></span>&#8451</h4>
                         <div class="description"><span></span></div>
@@ -162,10 +154,13 @@
 
 
     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Yfi3u9TPhl_yY-UKPgQ4uC7wo-8Taxc&&callback=initMap">
         </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
 

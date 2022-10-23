@@ -186,11 +186,24 @@ function unpackList(evt) {
 
 };
 //---------------------------------------------------------------------------------------------------------
+
+
+
 function init() {
     console.log('dashdata' + dashData);
     dashData = JSON.parse(localStorage.getItem('userLocation'));
     var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
+//displays trip location under the header
+    var customHeaderEl = document.querySelector('.nav-content');
+    var customHeader = document.createElement('h5');
+    customHeader.innerHTML = dashData;
+    customHeaderEl.appendChild(customHeader);
+//prevnts error if user bypasses dashboard page
+if (!dashData) {
+    window.location.href = './dashboard.html'
+}
+
     console.log('customItem' + customItems);
     if (customItems != null) {
         populteCustom();
@@ -205,6 +218,7 @@ function init() {
         dashboardDataInit();
         saveNotes();
         retrieveNotes();
+        
     };
 }
 
@@ -257,5 +271,8 @@ function retrieveNotes() {
     notes = document.getElementById('input_text');
 
     notes.value = rtvNotes;
-
 }
+
+$(document).ready(function(){
+    $('.carousel').carousel();
+  });
