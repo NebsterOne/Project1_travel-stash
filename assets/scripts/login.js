@@ -2,6 +2,7 @@ var userName = document.querySelector('#u-login');
 var userPass = document.querySelector('#u-pass');
 var userSub = document.querySelector('#user-sub');
 var userReturn = document.querySelector('#pass-return')
+//user name and password
 const uName = "user"
 const uPass = "password"
 
@@ -20,14 +21,8 @@ function notQAuth(event) {
         var returnEl = document.createElement('p');
         returnEl.innerHTML = "Incorrect username or password"
         userReturn.appendChild(returnEl);
- 
-    } 
 
-    console.log('working onclick');
-    console.log(userNameVal);
-    console.log(userPassVal);
-
-
+    }
 };
 
 userSub.addEventListener('click', notQAuth)

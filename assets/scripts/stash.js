@@ -27,20 +27,13 @@ function dashboardDataInit() {
         dashDataArr = dashData
         dashDataArr = dashDataArr.split(' ')
         localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-        console.log(typeof dashDataArr);
     };
 
     dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
-    console.log(typeof dashDataArr);
-
-
-
-    console.log(dashDataArr);
 
     if (!dashDataArr.includes(dashData)) {
         dashDataArr.push(dashData);
     }
-    console.log(dashDataArr)
 
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
 }
@@ -55,20 +48,14 @@ function dashboardDataInit() {
         dashDataArr = dashData
         dashDataArr = dashDataArr.split(' ')
         localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
-        console.log(typeof dashDataArr);
+ 
     };
 
     dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
-    console.log(typeof dashDataArr);
-
-
-
-    console.log(dashDataArr);
 
     if (!dashDataArr.includes(dashData)) {
         dashDataArr.push(dashData);
     }
-    console.log(dashDataArr)
 
     localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
 }
@@ -179,7 +166,7 @@ function populatePacked() {
     }
 };
 // --------------------------------------------------------------------------------------------------------
-//--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
+//--------------------------- MOVE FROM PACKED BACK TO UNPACKED NOT IMPLIMENTED YET-----------------------------------
 function unpackList(evt) {
     packedList = JSON.parse(localStorage.getItem(dashData + 'custompacked'));
     var clickedPacked = (evt.target.id);
@@ -190,7 +177,7 @@ function unpackList(evt) {
 
 
 function init() {
-    console.log('dashdata' + dashData);
+
     dashData = JSON.parse(localStorage.getItem('userLocation'));
     var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
@@ -204,7 +191,7 @@ if (!dashData) {
     window.location.href = './dashboard.html'
 }
 
-    console.log('customItem' + customItems);
+
     if (customItems != null) {
         populteCustom();
         if (customPacked != null) {
@@ -225,37 +212,13 @@ if (!dashData) {
 addMoreBtn.addEventListener('click', addMore);
 init()
 
-// let boxes = document.getElementsByClassName('box').length;
-
-// function save() {	
-//   for(let i = 1; i <= boxes; i++){
-// 	  var checkbox = document.getElementById(String(i));
-//     localStorage.setItem("checkbox" + String(i), checkbox.checked);	
-//   }
-// }
-
-// //for loading
-// for(let i = 1; i <= boxes; i++){
-//   if(localStorage.length > 0){
-//     var checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
-//     document.getElementById(String(i)).checked = checked;
-//   }
-// }
-// window.addEventListener('change', save);
-
-
-//------------------------------------
 //------------------------------------    
 savebtn = document.getElementById('savenotes');
 savebtn.addEventListener("click", () => {
     dashData = JSON.parse(localStorage.getItem('userLocation'));
     localStorage.setItem(dashData + "Notes:", (notes).value);
-    //  localStorage.setItem("Notes:", (notes).value);
 
-    console.log((notes).value);
-    //localStorage.getItem("Notes:", (notes).value);
-
-})
+});
 
 function saveNotes() {
 
@@ -272,7 +235,7 @@ function retrieveNotes() {
 
     notes.value = rtvNotes;
 }
-
+// materialise carousel function
 $(document).ready(function(){
     $('.carousel').carousel();
   });
