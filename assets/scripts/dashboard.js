@@ -4,6 +4,7 @@ var tripSubmit = document.querySelector('#user-sub');
 var wrapperEl = document.querySelector('#wrapper');
 
 
+
 function tripShowHide() {
     console.log('newTrip function start');
     if (newTripEL.style.display === 'none') {
@@ -50,12 +51,12 @@ function populteTrips() {
         //createDiv_card.classList.add('card', 'cyan', 'darken-2', 'hoverable', 'z-depth-5');
         //createDiv_card.setAttribute('id', trips[i]);
         createDiv_card.setAttribute('class', 'card cyan darken-2 hoverable z-depth-5');
-//display error
+        //display error
         var createDiv_cardContent = document.createElement('div');
         //createDiv_col.classList.add('card-content', 'white-text', 'card-bg');
         //createDiv_cardContent.setAttribute('id', trips[i]);
         createDiv_cardContent.setAttribute('class', 'card-content white-text card-bg');
-
+        //display error
         var createSpan = document.createElement('span');
         // createDiv_col.classList.add('card-title');
         // createSpan.setAttribute('id', trips[i]);
@@ -87,9 +88,19 @@ function populteTrips() {
     }
 }
 
+function init() {
+    console.log('init');
+    console.log(trips);
+    var trips = JSON.parse(localStorage.getItem('locationArray'));
+
+    if (trips != null) {
+        document.getElementById('introText').style.display = 'none';
+    } 
+}
+
 createNewBtn.addEventListener('click', tripShowHide);
 tripSubmit.addEventListener('click', createNewTrip);
 
 
-
+init();
 populteTrips();
