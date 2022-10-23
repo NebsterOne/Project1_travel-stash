@@ -29,7 +29,7 @@ function displayWeather(myData) {
         document.querySelector('#weather' + i + ' .humidity span').innerText = myData.list[i].main.humidity;
         document.querySelector('#weather' + i + ' .wind span').innerText = myData.list[i].wind.speed;
     }
-    document.querySelector('#weather').style.visibility = 'visible';
+    //document.querySelector('#weather').style.visibility = 'visible';
 }
 
 function updateWeather() {

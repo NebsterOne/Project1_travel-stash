@@ -186,6 +186,9 @@ function unpackList(evt) {
 
 };
 //---------------------------------------------------------------------------------------------------------
+
+
+
 function init() {
     console.log('dashdata' + dashData);
     dashData = JSON.parse(localStorage.getItem('userLocation'));
@@ -215,6 +218,7 @@ if (!dashData) {
         dashboardDataInit();
         saveNotes();
         retrieveNotes();
+        
     };
 }
 
