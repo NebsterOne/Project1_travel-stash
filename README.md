@@ -14,14 +14,15 @@ A map API - Provides the user a map of the city that they are in or might be int
 A packing list - This packing list offers the user to select default items and/or added items by the user, that may be helpful the trip and can adjust for the weather conditions of their location. The packing list has a 3 step system, making it easy to visually see what is wanted to be packed, what will be packed and what is packed leaving little chance of forgetting anything.
  
 
-    ```md
+
     ![Login](./assets/images/LoginScreenshot.jpg)
     ![Dashboard](./assets/images/Dashboard2.jpg)
     ![Google Maps](./assets/images/MapsNotes.jpg)
     ![5 Day forecast](./assets/images/weather.jpg)
     ![Packing list](./assets/images/packing.jpg)
-    ```
-https://github.com/Kokkonut/travel-stash
+
+https://github.com/Kokkonut/travel-stash/
+
 https://kokkonut.github.io/travel-stash/
 
 

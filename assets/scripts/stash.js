@@ -8,7 +8,7 @@ var notes = document.getElementById('input_text');
 var notesOutput = document.querySelector('.input-field');
 
 // consts and hoisted vars
-var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
+var basicItems = ['Water', 'Poncho', 'Boots', 'Snacks', 'Maps', 'Jacket', 'Pants'];
 
 var customItems = []; //array of items inside #custom list
 var customPacked = []; //array of items inside #packed list
