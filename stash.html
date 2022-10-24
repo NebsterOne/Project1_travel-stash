@@ -19,6 +19,7 @@
 
     <!-- Additional style liks added for map functionality -->
     <link rel="stylesheet" type="text/css" href="./assets/styles/mapstyle.css" />
+    <script type="module" src="./assets/scripts/mapindex.js"></script>
    
 
     <!-- Title Bar  -->
@@ -168,8 +169,13 @@
 
 
 
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-        <div id="map"></div>
+    <input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search Box"
+    />
+    <div id="map"></div>
 
 
     </div>
@@ -183,7 +189,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9fmq_Egb2AJtQsf6vVY9olIDogkwEEUY&callback=initAutocomplete&libraries=places&v=weekly"
         defer></script>
-        <script type="module" src="./assets/scripts/mapindex.js"></script>
+
     <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
 
