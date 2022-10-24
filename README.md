@@ -22,6 +22,7 @@ A packing list - This packing list offers the user to select default items and/o
     ![Packing list](./assets/images/packing.jpg)
     ```
 https://github.com/Kokkonut/travel-stash
+
 https://kokkonut.github.io/travel-stash/
 
 
