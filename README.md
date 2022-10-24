@@ -17,6 +17,12 @@ https://github.com/Kokkonut/travel-stash/
 
 https://kokkonut.github.io/travel-stash/
 
+Alternative links:
+https://github.com/NebsterOne/Project1_travel-stash/
+
+https://NebsterOne.github.io/Project1_travel-stash/
+
+
 ## Credits
 
 https://openweathermap.org/
