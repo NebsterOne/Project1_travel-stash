@@ -14,6 +14,11 @@
     <!-- Our custom .css file - It is placed here to override any links above -->
     <!--   <link rel="stylesheet" href="./assets/styles/weather.css"> -->
     <link rel="stylesheet" href="./assets/styles/style.css">
+
+    <!-- Additional style liks added for map functionality -->
+    <link rel="stylesheet" type="text/css" href="./assets/styles/mapstyle.css" />
+    <script type="module" src="/mapindex.js"></script>
+
     <!-- Title Bar  -->
     <title>Travel Stash</title>
 </head>
@@ -149,6 +154,25 @@
                 </div>
             </div>
         </div>
+
+        <!-- Map script and Search box  -->
+        <script>
+            const process = { env: {} };
+            process.env.GOOGLE_MAPS_API_KEY =
+              "AIzaSyA9fmq_Egb2AJtQsf6vVY9olIDogkwEEUY";
+          </script>
+
+
+
+        <input
+        id="pac-input"
+        class="controls"
+        type="text"
+        placeholder="Search Box"
+      />
+      <div id="map"></div>
+    
+
     </div>
 
 
@@ -157,9 +181,8 @@
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Yfi3u9TPhl_yY-UKPgQ4uC7wo-8Taxc&&callback=initMap">
-        </script>
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9fmq_Egb2AJtQsf6vVY9olIDogkwEEUY&callback=initAutocomplete&libraries=places&v=weekly"
+        defer></script> 
     <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
 
