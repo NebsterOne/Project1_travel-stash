@@ -153,3 +153,6 @@ button {
   border-radius: 10px;
 }
 
+#map {
+  min-height: 400px;
+}
