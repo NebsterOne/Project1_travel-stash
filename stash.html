@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <!-- Our custom .css file - It is placed here to override any links above -->
+    <!--   <link rel="stylesheet" href="./assets/styles/weather.css"> -->
     <link rel="stylesheet" href="./assets/styles/style.css">
     <!-- Title Bar  -->
     <title>Travel Stash</title>
@@ -18,85 +20,146 @@
 
 
 <body>
-
     <!-- Navbar goes here -->
     <nav class="nav-extended card-panel cyan darken-2 row">
         <div class="nav-wrapper">
             <!-- BRAND  -->
-            <a href="#!" class="brand-logo align-center">Travel Stash</a>
+            <h1 class="top flow-text">Travel Stash</h1>
         </div>
 
         <div class="nav-content">
+
             <!-- Dynamically generated title of searched city from the users search -->
 
         </div>
 
     </nav>
-    <!-- Page Layout here -->
-    <div class="row">
 
-        <div class="col s3 m3 l3">
-            <!-- Grey navigation panel -->
-            <div id="sidebar"  class="cyan lighten-5 " >
-                <p>This is optional, if we want to put any additional things here as a sidebar</p>
-            </div>
-        </div>
 
-        <div class="col s3 m9 l9">
+    <!-- Page Layout here-------------------------------------------------------------------------- -->
+    <div id="pageContent" class="row">
+
+
+        <div class="col m9 l9">
             <!-- main page content  ------------------------------------------------------------------------------->
-            <!-- map goes here -->
+            <script>
+                function initMap() {
+                    //Map options
+                    var options = {
+                        zoom: 11,
+                        center: { lat: -34.9285, lng: 138.6007 }
+                    }
+                    //New map
+                    var map = new google.maps.Map(document.getElementById('map'), options);
+                }
+            </script>
+
+
             <div class="row teal lighten-4">
                 <div id="map" class="col s12 m12 l12">
-                    <p>This is the map section</p>
+                    <div><img class="center-align col s12 m12 l12" width="650" src="./assets/images/map-default.jpg">
+                    </div>
                 </div>
             </div>
 
-            <!-- This will be where the weather forecast will go -------------------------------------------------------------->
+
+
+            <!-- Weather information being called from API in conjunction with JS file -------------------------------------------------------------->
             <div class="row cyan lighten-4">
-                <div id="weather" class="col s12 m12 l12">
-                    
-                    <p>This is the weather section</p>
+                <div id="weatherContainer" class="col s12 m12 l12 carousel">
+                    <div id="weather0" class="carousel-item">
+                        <h4 class="city"><span></span></h4>
+                        <h4 class="temp"><span></span>&#8451</h4>
+                        <div class="description"><span></span></div>
+                        <div class="humidity">humidity: <span></span>%</div>
+                        <div class="wind">wind speed: <span></span>km/h</div>
+                    </div>
+                    <div id="weather8" class="carousel-item">
+                        <h4 class="city"><span></span></h4>
+                        <h4 class="temp"><span></span>&#8451</h4>
+                        <div class="description"><span></span></div>
+                        <div class="humidity">humidity: <span></span>%</div>
+                        <div class="wind">wind speed: <span></span>km/h</div>
+                    </div>
+                    <div id="weather16" class="carousel-item">
+                        <h4 class="city"><span></span></h4>
+                        <h4 class="temp"><span></span>&#8451</h4>
+                        <div class="description"><span></span></div>
+                        <div class="humidity">humidity: <span></span>%</div>
+                        <div class="wind">wind speed: <span></span>km/h</div>
+                    </div>
+                    <div id="weather24" class="carousel-item">
+                        <h4 class="city"><span></span></h4>
+                        <h4 class="temp"><span></span>&#8451</h4>
+                        <div class="description"><span></span></div>
+                        <div class="humidity">humidity: <span></span>%</div>
+                        <div class="wind">wind speed: <span></span>km/h</div>
+                    </div>
+                    <div id="weather32" class="carousel-item">
+                        <h4 class="city"><span></span></h4>
+                        <h4 class="temp"><span></span>&#8451</h4>
+                        <div class="description"><span></span></div>
+                        <div class="humidity">humidity: <span></span>%</div>
+                        <div class="wind">wind speed: <span></span>km/h</div>
+                    </div>
                 </div>
             </div>
             <!-- this is the packing CHECKLIST SECTION ------------------------------------------------------->
-            <div id="pre-pop" class="row  teal lighten-4">
-                <div id="custom" class="col s12 m12 l12">
-                    <form id="custom-new" class="input-field col s6">
-                        <input type="text" id="add-more-cont" placeholder="ADD ITEMS" class="white-text">
+            <div id="checklist" class="row teal lighten-4 ">
+                <div id="custom" class="col s6 m6 l6">
+                    <div id="pre-pop">
+                        <p>Select a below item to start 'Need to Pack' list':</p>
+                        <hr>
+                    </div>
+                    <form id="custom-new" class="input-field">
+                        <input type="text" id="add-more-cont" placeholder="Enter Item here and select 'ADD ITEM'"
+                            class="white-text">
                         <button class="btn waves-effect waves-light hoverable cyan darken-2" type="button"
                             id="add-more">add item</button>
                     </form>
                     <!-- this is where you will see what is and isnt packed/checked off? -->
                     <!--NIC --  Use checkboxes when looking for yes or no answers. true false? The for attribute is necessary to bind our custom checkbox with the input.
                  Add the input's id as the value of the for attribute of the label. -->
-                    <div id="pre-pop">our pre populated list goes here</div>
                     <div id="custom-list" class="col s6">
-                        <p>not packed</p>
+                        <hr>
                     </div>
-                    <div id="packed-list" class="col s6">
-                        <p>packed</p>
-                    </div>
-                    <!-- <form action="#">
-                        <p>
-                            <label>
-                                <input class="col s6" type="checkbox" />
-                                <span>not packed</span>
-                               
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span>packed</span>
-                                <ul id="packed"></ul>
-                            </label>
-                        </p>
-                    </form> -->
                 </div>
-                <!-- -------------------------------------------------------------------------------------------------- -->
+
+                <!-- -------------------------- -->
+
+                <div id="packed-list" class="col s6 m6 l6">
+                    <p>Packed:</p>
+                    <hr>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------------------------------- -->
+        </div>
+ 
+            <!-- Grey navigation panel -->
+
+            <div id="sidebar" class="row teal lighten-4 ">
+                <div class="input-field">
+               <input id="input_text" type="text"> </input>
+                    <label for="input_text">Notes</label>
+                    <button id="savenotes" class="btn waves-effect waves-light hoverable cyan darken-2"
+                        type="button">Save Notes</button>
+
+
+                </div>
             </div>
         </div>
-
     </div>
+
+
+
+    <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Yfi3u9TPhl_yY-UKPgQ4uC7wo-8Taxc&&callback=initMap">
+        </script>
+    <script src="./assets/scripts/weather.js"></script>
     <script src='./assets/scripts/stash.js'></script>
+
 </body>
