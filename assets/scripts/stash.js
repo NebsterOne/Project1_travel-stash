@@ -3,6 +3,9 @@ var prePopEl = document.querySelector('#pre-pop');
 var customListEl = document.querySelector('#custom-list');
 var packedListEl = document.querySelector('#packed-list');
 var addMoreBtn = document.querySelector('#add-more');
+var savebtn = document.getElementById('savenotes')
+var notes = document.getElementById('input_text');
+var notesOutput = document.querySelector('.input-field');
 
 // consts and hoisted vars
 var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
@@ -10,11 +13,53 @@ var basicItems = ['water', 'poncho', 'boots', 'snacks', 'maps'];
 var customItems = []; //array of items inside #custom list
 var customPacked = []; //array of items inside #packed list
 var newItemArr = [];
-//object to hold all data, NOT IN USE
-// var userTrip = {
-//     items: customItems,
-//     itemsPacked: customPacked
-// };
+var dashData
+var dashDataArr = [];
+
+
+// This is a horrible piece of code on Fist load to work around the local storage being empty, then had to manage the fact that the 2nd time it loaded it was a string, so the .includes would not run, need DRY moethod of doing this!
+function dashboardDataInit() {
+    //get item location from local storage - this is used to name all the other local storage keys
+    dashData = JSON.parse(localStorage.getItem('userLocation')); //AG
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray')); //AG
+
+    if (dashDataArr === null) {
+        dashDataArr = dashData
+        dashDataArr = dashDataArr.split(' ')
+        localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+    };
+
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
+
+    if (!dashDataArr.includes(dashData)) {
+        dashDataArr.push(dashData);
+    }
+
+    localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+}
+
+// This is a horrible piece of code on Fist load to work around the local storage being empty, then had to manage the fact that the 2nd time it loaded it was a string, so the .includes would not run, need DRY moethod of doing this!
+function dashboardDataInit() {
+    //get item location from local storage - this is used to name all the other local storage keys
+    dashData = JSON.parse(localStorage.getItem('userLocation')); //AG
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray')); //AG
+
+    if (dashDataArr === null) {
+        dashDataArr = dashData
+        dashDataArr = dashDataArr.split(' ')
+        localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+ 
+    };
+
+    dashDataArr = JSON.parse(localStorage.getItem('locationArray'));
+
+    if (!dashDataArr.includes(dashData)) {
+        dashDataArr.push(dashData);
+    }
+
+    localStorage.setItem('locationArray', JSON.stringify(dashDataArr));
+}
+
 
 //When I open stash page i am presented with a a list of default items to take on my trip
 function populteBasic() {
@@ -35,23 +80,7 @@ function populteBasic() {
             customItems.push(i);
             customListEl.appendChild(listCustom);
 
-            localStorage.setItem('customItems', JSON.stringify(customItems));
-            // //FOR CHECKBOX'S
-            // var listCustom = document.createElement('input');
-            // listCustom.type = 'checkbox';
-            // listCustom.name = 'name';
-            // listCustom.value = 'value';
-            // listCustom.className = 'customBox'
-            // listCustom.id = i;
-
-            // var label = document.createElement('label');
-            // label.htmlFor = i;
-            // label.appendChild(document.createTextNode(i))
-
-            // customIdEl.appendChild(listCustom);
-            // customListEl.appendChild(label);
-            // customItems.push(i); //adds clicked item to custom items array
-            // console.log(userTrip);
+            localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
         });
         prePopEl.appendChild(buttonBasic);
     });
@@ -59,23 +88,20 @@ function populteBasic() {
 //-------------------------POPULATES UNPACKED ITEMS-----------------------------------------------------------
 //When I click an item from the the prepopulted list it is added to users custom list and removed from basic items
 function populteCustom() {
-    var customItems = JSON.parse(localStorage.getItem('customItems'));
-    //if (customItems != null) {
-        for (var i = 0; i < customItems.length; i++) {
-            var listCreate = document.createElement('button');
-            listCreate.setAttribute('id', customItems[i]);
-            listCreate.innerHTML = customItems[i];
-            listCreate.addEventListener('click', packedList)
-            customListEl.appendChild(listCreate);
-        }
-    //} else {
-     //   return;
-    //}
+    var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+    for (var i = 0; i < customItems.length; i++) {
+        var listCreate = document.createElement('button');
+        listCreate.setAttribute('id', customItems[i]);
+        listCreate.innerHTML = customItems[i];
+        listCreate.addEventListener('click', packedList)
+        customListEl.appendChild(listCreate);
+    }
+
 };
 //-----------------------------------------------------------------------------------------------------
 //-------------------------ADD CUSTOM ITEM--------------------------------------------------------------
 function addMore() {
-     customItems = JSON.parse(localStorage.getItem('customItems'));
+    customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var newItem = document.querySelector('#add-more-cont').value;
     newItemArr = newItem;
     customItems.push(newItemArr);
@@ -84,21 +110,21 @@ function addMore() {
     listCreate.setAttribute('id', newItem);
     listCreate.addEventListener('click', packedList);
     customListEl.appendChild(listCreate);
-    localStorage.setItem('customItems', JSON.stringify(customItems));
+    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
 
 
 };
 //--------------------------------------------------------------------------------------------------------
 //-----------------------MOVE ITEMS FROM UNPACKED TO PACKED-------------------------------------------------
 function packedList(evt) {
-    customItems = JSON.parse(localStorage.getItem('customItems'));
+    customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
     var clickedItem = (evt.target.id); //gets id of clicked button
 
     var clickedItemAdd = document.getElementById(clickedItem); //query selector for clicked button
     clickedItemAdd.parentNode.removeChild(clickedItemAdd); //removes button
 
     var moveToPacked = document.createElement('button');
-    moveToPacked.innerHTML  = clickedItem;
+    moveToPacked.innerHTML = clickedItem;
 
 
     moveToPacked.setAttribute('id', clickedItem);
@@ -107,24 +133,24 @@ function packedList(evt) {
 
 
 
-    for (var i = 0; i < customItems.length; i++){
+    for (var i = 0; i < customItems.length; i++) {
         if (customItems[i] === clickedItem) {
             customItems.splice(i, 1);
         }
     };
-    
-    localStorage.setItem('customItems', JSON.stringify(customItems));
 
-// ERROR ERROR CREATING OBJECT NOT ARRAY
+    localStorage.setItem(dashData + 'customItems', JSON.stringify(customItems));
+
+    // ERROR ERROR CREATING OBJECT NOT ARRAY
     customPacked.push(clickedItem);
 
-    localStorage.setItem('customPacked', JSON.stringify(customPacked));
+    localStorage.setItem(dashData + 'customPacked', JSON.stringify(customPacked));
 
 };
 //-------------------------------------------------------------------------------------------------------
 // ----------------------------------------- POPULATE PACKED --------------------------------------------
 function populatePacked() {
-    customPacked = JSON.parse(localStorage.getItem('customPacked'));
+    customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
     //customPackedArr = Object.values(customPacked);
 
     if (customPacked != null) {
@@ -140,48 +166,76 @@ function populatePacked() {
     }
 };
 // --------------------------------------------------------------------------------------------------------
-//--------------------------- MOVE FROM PACKED BACK TO UNPACKED--------------------------------------------
+//--------------------------- MOVE FROM PACKED BACK TO UNPACKED NOT IMPLIMENTED YET-----------------------------------
 function unpackList(evt) {
-    packedList = JSON.parse(localStorage.getItem('custompacked'));
+    packedList = JSON.parse(localStorage.getItem(dashData + 'custompacked'));
     var clickedPacked = (evt.target.id);
 
 };
 //---------------------------------------------------------------------------------------------------------
+
+
+
 function init() {
-    var  customItems = JSON.parse(localStorage.getItem('customItems'));
-    var customPacked = JSON.parse(localStorage.getItem('customPacked'));
+
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    var customItems = JSON.parse(localStorage.getItem(dashData + 'customItems'));
+    var customPacked = JSON.parse(localStorage.getItem(dashData + 'customPacked'));
+//displays trip location under the header
+    var customHeaderEl = document.querySelector('.nav-content');
+    var customHeader = document.createElement('h5');
+    customHeader.innerHTML = dashData;
+    customHeaderEl.appendChild(customHeader);
+//prevnts error if user bypasses dashboard page
+if (!dashData) {
+    window.location.href = './dashboard.html'
+}
+
+
     if (customItems != null) {
         populteCustom();
         if (customPacked != null) {
             populatePacked();
+            dashboardDataInit();
+            saveNotes();
+            retrieveNotes();
         }
     } else {
         populteBasic();
+        dashboardDataInit();
+        saveNotes();
+        retrieveNotes();
+        
     };
 }
 
 addMoreBtn.addEventListener('click', addMore);
 init()
 
+//------------------------------------    
+savebtn = document.getElementById('savenotes');
+savebtn.addEventListener("click", () => {
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    localStorage.setItem(dashData + "Notes:", (notes).value);
+
+});
+
+function saveNotes() {
 
 
+    notes = document.getElementById('input_text');
 
+};
 
+function retrieveNotes() {
+    dashData = JSON.parse(localStorage.getItem('userLocation'));
+    var rtvNotes = (localStorage.getItem(dashData + "Notes:", (notes).value));
 
-// let boxes = document.getElementsByClassName('box').length;
+    notes = document.getElementById('input_text');
 
-// function save() {	
-//   for(let i = 1; i <= boxes; i++){
-// 	  var checkbox = document.getElementById(String(i));
-//     localStorage.setItem("checkbox" + String(i), checkbox.checked);	
-//   }
-// }
-
-// //for loading
-// for(let i = 1; i <= boxes; i++){
-//   if(localStorage.length > 0){
-//     var checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
-//     document.getElementById(String(i)).checked = checked;
-//   }
-// }
-// window.addEventListener('change', save);
+    notes.value = rtvNotes;
+}
+// materialise carousel function
+$(document).ready(function(){
+    $('.carousel').carousel();
+  });
