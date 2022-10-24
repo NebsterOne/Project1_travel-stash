@@ -1,59 +1,47 @@
 # Travel-Stash
+bootcamp project 1 
+
+
+
+Project Description:
+
+Application / website that provides a 5 day weather forecast for the user. 
+Provides the user a map of the city they are in or might be interested in exploring. Offers the user to select clothing items that may be helpful for the weather conditions of their location. 
+
+User Story:
+
+As a traveller I like to understand weather conditions at least 5 days prior to arrival. I like to know what clothing and items to accommodate the variety in weather conditions. I also require a map of the location in which I plan to travel. . 
+
+
+# Travel Stash
 
 ## Description
 
-This project was created to make planning for travel a quick and easy task, being able to have an all-in-one application where you can have a personalised log-in saving all your trips, access the location, the local weather and have your own adjustable packing list. The weather API used allows the user to see a 5 day forecast in the location selected, the map will give you an interactive map starting at your selected location & your personalised packing list, provides some default items but also the ability to add custom items, ensuring not to forget anything. 
+
+Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+Application / website that provides a 5 day weather forecast for the user. 
+Provides the user a map of the city they are in or might be interested in exploring. Offers the user to select clothing items that may be helpful for the weather conditions of their location. 
+
+
 
 ## Usage
 
-The project uses:
-Personalised Login - Allows you to set a personal login.
-Local Storage - Stores your trips information & additional notes.
-A 5 day weather API - Captures the next 5 day forecast of your selelcted location.
-A map API - Provides the user a map of the city that they are in or might be interested in exploring.
-A packing list - This packing list offers the user to select default items and/or added items by the user, that may be helpful the trip and can adjust for the weather conditions of their location. The packing list has a 3 step system, making it easy to visually see what is wanted to be packed, what will be packed and what is packed leaving little chance of forgetting anything.
- 
+Provide instructions and examples for use. Include screenshots as needed.
+
+To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
     ```md
-    ![Login](./assets/images/LoginScreenshot.jpg)
-    ![Dashboard](./assets/images/Dashboard2.jpg)
-    ![Google Maps](./assets/images/MapsNotes.jpg)
-    ![5 Day forecast](./assets/images/weather.jpg)
-    ![Packing list](./assets/images/packing.jpg)
+    ![alt text](assets/images/screenshot.png)
     ```
-https://github.com/Kokkonut/travel-stash
 
-https://kokkonut.github.io/travel-stash/
 
 
 ## Credits
 
-https://openweathermap.org/
-https://materializecss.com/
-https://stackoverflow.com/
-https://developer.mozilla.org/
-https://github.com/
-https://mapsplatform.google.com/
+List your collaborators, if any, with links to their GitHub profiles.
 
-BootCamp - University of Adelaide 
-(Tutors and Instructors)
+If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-
-
-The collaborators, with links to their GitHub profiles.
-
-Kokkonut
-Nic Fraenkel
-
-@jamdancle
-Dan McCartney
-
-@NebsterOne
-Ned Zatezalo
-
-@Ellekcir
-Rickelle Griffith
-
-
+If you followed tutorials, include links to those here as well.
 
 
